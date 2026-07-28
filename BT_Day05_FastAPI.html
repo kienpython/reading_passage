@@ -1147,7 +1147,7 @@
     <header class="master-header" style="background: var(--card-bg, #ffffff); border-bottom: 1px solid var(--border-color, #e2e8f0); padding: 14px 24px; margin-bottom: 20px;">
         <div class="master-header-container" style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
             <div style="flex:1; min-width:320px;">
-                <span class="banner-badge" id="bannerBadge" style="background:var(--accent-red, #dc2626); color:white; font-weight:800; font-size:0.8rem; padding:4px 10px; border-radius:4px; text-transform:uppercase;">Tuần 1 • Ngày 1</span>
+                <span class="banner-badge" id="bannerBadge" style="background:var(--accent-red, #dc2626); color:white; font-weight:800; font-size:0.8rem; padding:4px 10px; border-radius:4px; text-transform:uppercase;">Tuần 1 • Ngày 5</span>
                 <h1 class="banner-title" id="bannerTitle" style="font-size:1.6rem; font-weight:800; color:var(--text-primary, #0f172a); margin-top:8px;">Python Web 1 — FastAPI Architecture, Uvicorn & Swagger UI</h1>
             </div>
         </div>
@@ -1169,7 +1169,7 @@
         <!-- Dynamic Lesson Header Banner -->
         <div style="background: var(--accent-red-light); border: 2px solid var(--accent-red); padding: 18px 24px; border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
             <div>
-                <span id="bannerBadge" style="background: var(--accent-red); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 4px; text-transform: uppercase;">Tuần 1 • Ngày 1</span>
+                <span id="bannerBadge" style="background: var(--accent-red); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 4px; text-transform: uppercase;">Tuần 1 • Ngày 5</span>
                 <h2 id="bannerTitle" style="color: var(--accent-red-dark); font-weight: 800; font-size: 1.25rem; margin-top: 4px;">Python Web 1 — FastAPI Architecture, Uvicorn & Swagger UI</h2>
             </div>
             <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary);">
@@ -1542,13 +1542,13 @@
                             <text x="310" y="35" text-anchor="middle" font-size="12" fill="#1a1a1a">Trình duyệt / Postman</text>
 
                             <line x1="310" y1="52" x2="310" y2="75" stroke="#5f6368" stroke-width="2" marker-end="url(#a1)"/>
-                            <text x="310" y="68" text-anchor="middle" font-size="10" fill="#555">GET /api/v1/store-info</text>
+                            <text x="400" y="68" text-anchor="middle" font-size="10" fill="#555">GET /api/v1/store-info</text>
 
                             <rect x="130" y="80" width="360" height="42" rx="8" fill="#fef7e0" stroke="#f9ab00" stroke-width="2"/>
                             <text x="310" y="105" text-anchor="middle" font-size="12" fill="#1a1a1a">FastAPI (Uvicorn server)</text>
 
                             <line x1="310" y1="122" x2="310" y2="145" stroke="#5f6368" stroke-width="2" marker-end="url(#a1)"/>
-                            <text x="310" y="138" text-anchor="middle" font-size="10" fill="#555">router "/api/v1" → store_info()</text>
+                            <text x="400" y="138" text-anchor="middle" font-size="10" fill="#555">router "/api/v1" → store_info()</text>
 
                             <rect x="130" y="150" width="360" height="42" rx="8" fill="#f3e8fd" stroke="#8b5cf6" stroke-width="2"/>
                             <text x="310" y="175" text-anchor="middle" font-size="11.5" fill="#1a1a1a">Trả về dict Python → FastAPI tự chuyển JSON</text>
@@ -1964,13 +1964,17 @@ app = <span class="fill">______________</span>
                             <label class="form-label">Lớp Học *</label>
                             <select id="subClass" class="form-input" required style="cursor:pointer; font-weight:600;">
                                 <option value="">-- Chọn Lớp --</option>
-                                <option value="CNTT1">Lớp CNTT1</option>
-                                <option value="CNTT2">Lớp CNTT2</option>
-                                <option value="CNTT3">Lớp CNTT3</option>
-                                <option value="CNTT4">Lớp CNTT4</option>
-                                <option value="CNTT5">Lớp CNTT5</option>
-                                <option value="CNTT6">Lớp CNTT6</option>
-                                <option value="CNTT8">Lớp CNTT8</option>
+                                <option value="HN-KS25-CNTT1">HN-KS25-CNTT1</option>
+                                <option value="HN-KS25-CNTT2">HN-KS25-CNTT2</option>
+                                <option value="HN-KS25-CNTT3">HN-KS25-CNTT3</option>
+                                <option value="HN-KS25-CNTT4">HN-KS25-CNTT4</option>
+                                <option value="HN-KS25-CNTT5">HN-KS25-CNTT5</option>
+                                <option value="HN-KS25-CNTT6">HN-KS25-CNTT6</option>
+                                <option value="HN-KS25-CNTT8">HN-KS25-CNTT8</option>
+                                <option value="HCM-KS25-CNTT5">HCM-KS25-CNTT5</option>
+                                <option value="HCM-KS25-CNTT6">HCM-KS25-CNTT6</option>
+                                <option value="HCM-KS25-CNTT7">HCM-KS25-CNTT7</option>
+                                <option value="HCM-KS25-CNTT8">HCM-KS25-CNTT8</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -2043,13 +2047,17 @@ app = <span class="fill">______________</span>
                             <label style="font-weight: 700; font-size: 0.9rem;">🎯 Lọc Theo Lớp Học:</label>
                             <select id="filterClassSelect" onchange="loadSubmissionsTable()" class="form-input" style="width: auto; height: 36px; padding: 0 16px; font-weight: 700; cursor: pointer;">
                                 <option value="ALL">--- Tất Cả Các Lớp ---</option>
-                                <option value="CNTT1">Lớp CNTT1</option>
-                                <option value="CNTT2">Lớp CNTT2</option>
-                                <option value="CNTT3">Lớp CNTT3</option>
-                                <option value="CNTT4">Lớp CNTT4</option>
-                                <option value="CNTT5">Lớp CNTT5</option>
-                                <option value="CNTT6">Lớp CNTT6</option>
-                                <option value="CNTT8">Lớp CNTT8</option>
+                                <option value="HN-KS25-CNTT1">HN-KS25-CNTT1</option>
+                                <option value="HN-KS25-CNTT2">HN-KS25-CNTT2</option>
+                                <option value="HN-KS25-CNTT3">HN-KS25-CNTT3</option>
+                                <option value="HN-KS25-CNTT4">HN-KS25-CNTT4</option>
+                                <option value="HN-KS25-CNTT5">HN-KS25-CNTT5</option>
+                                <option value="HN-KS25-CNTT6">HN-KS25-CNTT6</option>
+                                <option value="HN-KS25-CNTT8">HN-KS25-CNTT8</option>
+                                <option value="HCM-KS25-CNTT5">HCM-KS25-CNTT5</option>
+                                <option value="HCM-KS25-CNTT6">HCM-KS25-CNTT6</option>
+                                <option value="HCM-KS25-CNTT7">HCM-KS25-CNTT7</option>
+                                <option value="HCM-KS25-CNTT8">HCM-KS25-CNTT8</option>
                             </select>
                         </div>
 
@@ -2059,35 +2067,18 @@ app = <span class="fill">______________</span>
                     </div>
 
                     <!-- Breakdown per class counter -->
-                    <div class="class-stats-grid">
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT1</div>
-                            <div class="class-stat-num" id="stat-CNTT1">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT2</div>
-                            <div class="class-stat-num" id="stat-CNTT2">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT3</div>
-                            <div class="class-stat-num" id="stat-CNTT3">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT4</div>
-                            <div class="class-stat-num" id="stat-CNTT4">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT5</div>
-                            <div class="class-stat-num" id="stat-CNTT5">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT6</div>
-                            <div class="class-stat-num" id="stat-CNTT6">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT8</div>
-                            <div class="class-stat-num" id="stat-CNTT8">0</div>
-                        </div>
+                    <div class="class-stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT1</div><div class="class-stat-num" id="stat-HN-KS25-CNTT1">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT2</div><div class="class-stat-num" id="stat-HN-KS25-CNTT2">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT3</div><div class="class-stat-num" id="stat-HN-KS25-CNTT3">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT4</div><div class="class-stat-num" id="stat-HN-KS25-CNTT4">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT5</div><div class="class-stat-num" id="stat-HN-KS25-CNTT5">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT6</div><div class="class-stat-num" id="stat-HN-KS25-CNTT6">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT8</div><div class="class-stat-num" id="stat-HN-KS25-CNTT8">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HCM-KS25-CNTT5</div><div class="class-stat-num" id="stat-HCM-KS25-CNTT5">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HCM-KS25-CNTT6</div><div class="class-stat-num" id="stat-HCM-KS25-CNTT6">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HCM-KS25-CNTT7</div><div class="class-stat-num" id="stat-HCM-KS25-CNTT7">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HCM-KS25-CNTT8</div><div class="class-stat-num" id="stat-HCM-KS25-CNTT8">0</div></div>
                     </div>
                 </div>
 
@@ -2117,7 +2108,6 @@ app = <span class="fill">______________</span>
                 </div>
             </div>
         </section>
-
 
         <!-- Section 5: ONLY Word Exercise File Resource Card -->
         <section id="sec-resource" class="card-panel">
