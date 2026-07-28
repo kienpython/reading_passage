@@ -2025,7 +2025,7 @@ app = <span class="fill">______________</span>
                             <label style="font-weight: 700; font-size: 0.9rem;">📚 Lọc Theo Bài Học:</label>
                             <select id="filterLessonSelect" onchange="loadSubmissionsTable()" class="form-input" style="width: auto; height: 36px; padding: 0 16px; font-weight: 700; cursor: pointer; max-width: 320px;">
                                 <option value="ALL">--- Tất Cả Các Bài Học (Ngày 1 -> Ngày 14) ---</option>
-                                <option value="DAY_01" selected>Ngày 1: Python Core 1</option>
+                                <option value="DAY_05" selected>Ngày 1: Python Core 1</option>
                                 <option value="DAY_02">Ngày 2: Python Core 2</option>
                                 <option value="DAY_03">Ngày 3: Python Core 3</option>
                                 <option value="DAY_04">Ngày 4: Python Core 4</option>
@@ -2172,6 +2172,7 @@ app = <span class="fill">______________</span>
         let pyodidePromise = null;
         let currentActiveLessonId = "DAY_05";
         const CURRENT_LESSON_ID = "DAY_05";
+        const SUBMISSION = "DAY_05";
         let ex1Passed = false;
         let ex2Passed = false;
         const TEACHER_PASSWORD_KEY = "rikkeiedu";
@@ -2206,16 +2207,16 @@ app = <span class="fill">______________</span>
         };
 
         // PRE-POPULATE MOCK DATA
-        if (!localStorage.getItem('python_day1_submissions')) {
+        if (!localStorage.getItem(SUBMISSION)) {
             const mockData = [
-                { id: 1, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026001", name: "Nguyễn Văn An", className: "CNTT1", class: "CNTT1", lop: "CNTT1", link: "https://github.com/an/python-day1", time: "26/07/2026 09:15:00", status: "Đã nộp" },
-                { id: 2, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026002", name: "Trần Thị Bình", className: "CNTT2", class: "CNTT2", lop: "CNTT2", link: "https://github.com/binh/python-day1", time: "26/07/2026 09:18:22", status: "Đã nộp" },
-                { id: 3, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026003", name: "Lê Hoàng Cường", className: "CNTT3", class: "CNTT3", lop: "CNTT3", link: "https://github.com/cuong/python-day1", time: "26/07/2026 09:22:45", status: "Đã nộp" },
-                { id: 4, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026004", name: "Phạm Văn Dũng", className: "CNTT4", class: "CNTT4", lop: "CNTT4", link: "https://github.com/dung/python-day1", time: "26/07/2026 09:30:12", status: "Đã nộp" },
-                { id: 5, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026005", name: "Đỗ Minh Đăng", className: "CNTT5", class: "CNTT5", lop: "CNTT5", link: "https://github.com/dang/python-day1", time: "26/07/2026 09:35:50", status: "Đã nộp" },
-                { id: 6, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026006", name: "Hoàng Thị Em", className: "CNTT6", class: "CNTT6", lop: "CNTT6", link: "https://github.com/em/python-day1", time: "26/07/2026 09:40:11", status: "Đã nộp" }
+                { id: 1, lessonId: "DAY_05", lesson: "DAY_05", msv: "SV2026001", name: "Nguyễn Văn An", className: "CNTT1", class: "CNTT1", lop: "CNTT1", link: "https://github.com/an/python-day1", time: "26/07/2026 09:15:00", status: "Đã nộp" },
+                { id: 2, lessonId: "DAY_05", lesson: "DAY_05", msv: "SV2026002", name: "Trần Thị Bình", className: "CNTT2", class: "CNTT2", lop: "CNTT2", link: "https://github.com/binh/python-day1", time: "26/07/2026 09:18:22", status: "Đã nộp" },
+                { id: 3, lessonId: "DAY_05", lesson: "DAY_05", msv: "SV2026003", name: "Lê Hoàng Cường", className: "CNTT3", class: "CNTT3", lop: "CNTT3", link: "https://github.com/cuong/python-day1", time: "26/07/2026 09:22:45", status: "Đã nộp" },
+                { id: 4, lessonId: "DAY_05", lesson: "DAY_05", msv: "SV2026004", name: "Phạm Văn Dũng", className: "CNTT4", class: "CNTT4", lop: "CNTT4", link: "https://github.com/dung/python-day1", time: "26/07/2026 09:30:12", status: "Đã nộp" },
+                { id: 5, lessonId: "DAY_05", lesson: "DAY_05", msv: "SV2026005", name: "Đỗ Minh Đăng", className: "CNTT5", class: "CNTT5", lop: "CNTT5", link: "https://github.com/dang/python-day1", time: "26/07/2026 09:35:50", status: "Đã nộp" },
+                { id: 6, lessonId: "DAY_05", lesson: "DAY_05", msv: "SV2026006", name: "Hoàng Thị Em", className: "CNTT6", class: "CNTT6", lop: "CNTT6", link: "https://github.com/em/python-day1", time: "26/07/2026 09:40:11", status: "Đã nộp" }
             ];
-            localStorage.setItem('python_day1_submissions', JSON.stringify(mockData));
+            localStorage.setItem(SUBMISSION, JSON.stringify(mockData));
         }
 
         function getWebhookUrl() {
@@ -2229,7 +2230,7 @@ app = <span class="fill">______________</span>
             const isInSubfolder = currentPath.includes('/day01/') || currentPath.includes('/day02/');
             const prefix = isInSubfolder ? '../' : './';
 
-            if (val === "DAY_01") {
+            if (val === "DAY_05") {
                 window.location.href = prefix + "day01/day01_python_core.html";
             } else if (val === "DAY_02") {
                 window.location.href = prefix + "day02/day02_python_core.html";
@@ -2259,7 +2260,7 @@ app = <span class="fill">______________</span>
         // MASTER CURRICULUM MODULE SWITCHER
         function changeLessonModule(lessonId) {
             currentActiveLessonId = lessonId;
-            const data = SYLLABUS_MAP[lessonId] || SYLLABUS_MAP["DAY_01"];
+            const data = SYLLABUS_MAP[lessonId] || SYLLABUS_MAP["DAY_05"];
 
             const badgeEl = document.getElementById('bannerBadge');
             const titleEl = document.getElementById('bannerTitle');
@@ -2824,9 +2825,9 @@ sys.stdout = io.StringIO()
                 status: 'Đã nộp'
             };
 
-            let existing = JSON.parse(localStorage.getItem('python_day1_submissions') || '[]');
+            let existing = JSON.parse(localStorage.getItem(SUBMISSION) || '[]');
             existing.unshift(payload);
-            localStorage.setItem('python_day1_submissions', JSON.stringify(existing));
+            localStorage.setItem(SUBMISSION, JSON.stringify(existing));
 
             const webhookUrl = getWebhookUrl();
             if (webhookUrl && webhookUrl.length > 10) {
@@ -2904,9 +2905,9 @@ sys.stdout = io.StringIO()
                                 id: item.id || (Date.now() + idx),
                                 time: item.time || item.timestamp || '',
                                 timestamp: item.time || item.timestamp || '',
-                                lessonId: item.lessonId || item.bai_hoc || item.lesson || 'DAY_01',
-                                lesson: item.lessonId || item.bai_hoc || item.lesson || 'DAY_01',
-                                bai_hoc: item.lessonId || item.bai_hoc || item.lesson || 'DAY_01',
+                                lessonId: item.lessonId || item.bai_hoc || item.lesson || 'DAY_05',
+                                lesson: item.lessonId || item.bai_hoc || item.lesson || 'DAY_05',
+                                bai_hoc: item.lessonId || item.bai_hoc || item.lesson || 'DAY_05',
                                 className: item.className || item.class || item.lop || '',
                                 class: item.className || item.class || item.lop || '',
                                 lop: item.className || item.class || item.lop || '',
@@ -2918,7 +2919,7 @@ sys.stdout = io.StringIO()
                                 status: item.status || 'Đã nộp'
                             }));
 
-                            localStorage.setItem('python_day1_submissions', JSON.stringify(normalizedData));
+                            localStorage.setItem(SUBMISSION, JSON.stringify(normalizedData));
                             if (statusMsg) {
                                 statusMsg.style.background = '#dcfce7';
                                 statusMsg.style.color = '#15803d';
@@ -2944,11 +2945,11 @@ sys.stdout = io.StringIO()
         }
 
         function loadSubmissionsTable() {
-            let list = JSON.parse(localStorage.getItem('python_day1_submissions') || '[]');
+            let list = JSON.parse(localStorage.getItem(SUBMISSION) || '[]');
             
             let dayList = list.filter(row => {
                 const les = String(row.lessonId || row.bai_hoc || row.lesson || '').trim();
-                return les === 'DAY_01' || les === 'Day_01' || les === 'day_01' || les.includes('01');
+                return les === 'DAY_05' || les === 'DAY_05' || les === 'DAY_05' || les.includes('01');
             });
 
             const stats = { CNTT1: 0, CNTT2: 0, CNTT3: 0, CNTT4: 0, CNTT5: 0, CNTT6: 0, CNTT8: 0 };
@@ -3004,11 +3005,11 @@ sys.stdout = io.StringIO()
         }
 
         function exportSubmissionsToFormattedExcel() {
-            let list = JSON.parse(localStorage.getItem('python_day1_submissions') || '[]');
+            let list = JSON.parse(localStorage.getItem(SUBMISSION) || '[]');
             const filterClassEl = document.getElementById('filterClassSelect');
             const filterClass = filterClassEl ? filterClassEl.value : 'ALL';
 
-            let filteredList = list.filter(sub => (sub.lessonId || sub.lesson || 'DAY_01') === 'DAY_01');
+            let filteredList = list.filter(sub => (sub.lessonId || sub.lesson || 'DAY_05') === 'DAY_05');
             if (filterClass !== 'ALL') {
                 filteredList = filteredList.filter(sub => (sub.className || sub.class || sub.lop) === filterClass);
             }
@@ -3021,7 +3022,7 @@ sys.stdout = io.StringIO()
                 return cA - cB;
             });
 
-            const titleText = `BÁO CÁO TỔNG HỢP NỘP BÀI TẬP PYTHON CORE - BÀI DAY_01`;
+            const titleText = `BÁO CÁO TỔNG HỢP NỘP BÀI TẬP PYTHON CORE - BÀI DAY_05`;
             let excelHTML = `
                 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
                 <head>
@@ -3077,7 +3078,7 @@ sys.stdout = io.StringIO()
                 excelHTML += `
                     <tr>
                         <td class="center">${stt++}</td>
-                        <td class="center">DAY_01</td>
+                        <td class="center">DAY_05</td>
                         <td class="center">${sub.msv || ''}</td>
                         <td>${sub.name || sub.ho_ten || ''}</td>
                         <td class="class-badge">${cName}</td>
@@ -3098,7 +3099,7 @@ sys.stdout = io.StringIO()
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `BaoCao_NopBai_DAY_01_${filterClass}_${new Date().toISOString().slice(0,10)}.xls`;
+            a.download = `BaoCao_NopBai_DAY_05_${filterClass}_${new Date().toISOString().slice(0,10)}.xls`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);

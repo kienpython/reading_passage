@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Day 6 | Rikkei Education</title>
+    <title>Python Day 7 | Rikkei Education</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1147,8 +1147,8 @@
     <header class="master-header" style="background: var(--card-bg, #ffffff); border-bottom: 1px solid var(--border-color, #e2e8f0); padding: 14px 24px; margin-bottom: 20px;">
         <div class="master-header-container" style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
             <div style="flex:1; min-width:320px;">
-                <span class="banner-badge" id="bannerBadge" style="background:var(--accent-red, #dc2626); color:white; font-weight:800; font-size:0.8rem; padding:4px 10px; border-radius:4px; text-transform:uppercase;">Tuần 1 • Ngày 6</span>
-                <h1 class="banner-title" id="bannerTitle" style="font-size:1.6rem; font-weight:800; color:var(--text-primary, #0f172a); margin-top:8px;">Python Web 2 — FASTAPI PYDANTIC SCHEMAS & CRUD ENDPOINTS (IN-MEMORY)</h1>
+                <span class="banner-badge" id="bannerBadge" style="background:var(--accent-red, #dc2626); color:white; font-weight:800; font-size:0.8rem; padding:4px 10px; border-radius:4px; text-transform:uppercase;">Tuần 1 • Ngày 7</span>
+                <h1 class="banner-title" id="bannerTitle" style="font-size:1.6rem; font-weight:800; color:var(--text-primary, #0f172a); margin-top:8px;">Python Web 2 — Mini Project 1</h1>
             </div>
         </div>
     </header>
@@ -1156,11 +1156,11 @@
 
     <!-- Compact Navigation Bar -->
     <nav class="top-nav">
-        <a href="#sec-theory" class="nav-link active">📖 1. Lý Thuyết Chuyên Sâu</a>
-        <a href="#sec-demo" class="nav-link">⚡ 2. Demo Code Phân Tích</a>
-        <a href="#sec-exercise" class="nav-link">✏️ 3. Bài Tập Thực Hành</a>
-        <a href="#sec-submit" class="nav-link">📤 4. Nộp Bài Học Viên</a>
-        <a href="#sec-resource" class="nav-link">📁 5. File Word Bài Tập</a>
+        <!-- <a href="#sec-theory" class="nav-link active">📖 1. Lý Thuyết Chuyên Sâu</a>
+        <a href="#sec-demo" class="nav-link">⚡ 2. Demo Code Phân Tích</a> -->
+        <a href="#sec-exercise" class="nav-link">✏️ 1. Bài Tập Thực Hành</a>
+        <a href="#sec-submit" class="nav-link">📤 2. Nộp Bài Học Viên</a>
+        <a href="#sec-resource" class="nav-link">📁 3. File Word Bài Tập</a>
     </nav>
 
     <!-- Main Content Area -->
@@ -1169,8 +1169,8 @@
         <!-- Dynamic Lesson Header Banner -->
         <div style="background: var(--accent-red-light); border: 2px solid var(--accent-red); padding: 18px 24px; border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
             <div>
-                <span id="bannerBadge" style="background: var(--accent-red); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 4px; text-transform: uppercase;">Tuần 1 • Ngày 6</span>
-                <h2 id="bannerTitle" style="color: var(--accent-red-dark); font-weight: 800; font-size: 1.25rem; margin-top: 4px;">Python Web 2 — FASTAPI PYDANTIC SCHEMAS & CRUD ENDPOINTS (IN-MEMORY)</h2>
+                <span id="bannerBadge" style="background: var(--accent-red); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 4px; text-transform: uppercase;">Tuần 1 • Ngày 7</span>
+                <h2 id="bannerTitle" style="color: var(--accent-red-dark); font-weight: 800; font-size: 1.25rem; margin-top: 4px;">Python Web 2 — Mini Project 1</h2>
             </div>
             <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary);">
                 ⏱️ Thời lượng học: <b>60 - 90 phút</b> | 🎯 Mức độ: <b>Cơ bản ➔ Nâng cao</b>
@@ -1178,577 +1178,8 @@
         </div>
 
         <!-- Section 1: Lý Thuyết Ôn Tập Chuyên Sâu -->
-        <style>
-        /* ============ CSS fallback cho toàn bộ section lý thuyết ============ */
-        .theory-quote {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin: 16px 0;
-            padding: 14px 16px;
-            background: #f0f6ff;
-            border-left: 4px solid #4285f4;
-            border-radius: 6px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .theory-quote .quote-icon { font-size: 18px; line-height: 1; }
-
-        .theory-figure { margin: 18px 0; text-align: center; }
-        .theory-figure svg { max-width: 100%; height: auto; }
-        .figure-caption { margin-top: 6px; font-size: 12px; font-style: italic; color: #666; }
-
-        /* Thanh nút chuyển tab kiến thức */
-        .tab-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 4px 0 18px 0;
-            border-bottom: 2px solid #eef0f3;
-            padding-bottom: 12px;
-        }
-        .tab-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 9px 16px;
-            border: 1px solid #dfe3e8;
-            background: #f7f8fa;
-            color: #444;
-            border-radius: 999px;
-            font-size: 13.5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-        .tab-btn .tab-btn-icon { font-size: 15px; }
-        .tab-btn:hover {
-            background: #eef3ff;
-            border-color: #a9c4f5;
-            color: #1a56d6;
-            transform: translateY(-1px);
-        }
-        .tab-btn.active {
-            background: linear-gradient(135deg, #4285f4, #1a56d6);
-            border-color: #1a56d6;
-            color: #fff;
-            box-shadow: 0 4px 10px rgba(26, 86, 214, 0.25);
-        }
-
-        .tab-pane { animation: fadeInTab 0.25s ease; }
-        @keyframes fadeInTab {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Bảng lý thuyết */
-        .theory-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 14px 0 20px 0;
-            font-size: 13.5px;
-        }
-        .theory-table th, .theory-table td {
-            border: 1px solid #e3e6ea;
-            padding: 9px 12px;
-            text-align: left;
-            vertical-align: top;
-        }
-        .theory-table th {
-            background: #f4f7fd;
-            font-weight: 700;
-            color: #223;
-        }
-        .theory-table tr:nth-child(even) td { background: #fafbfd; }
-        .theory-table code { background: #eef1f6; padding: 1px 6px; border-radius: 4px; }
-
-        /* Khối code/JSON */
-        .code-block {
-            background: #1e1e2e;
-            color: #d4d4dc;
-            border-radius: 8px;
-            padding: 14px 16px;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            line-height: 1.6;
-            overflow-x: auto;
-            margin: 14px 0;
-        }
-        .code-block .k { color: #7dcfff; }
-        .code-block .s { color: #9ece6a; }
-
-        /* Badge nhóm status code / method */
-        .badge {
-            display: inline-block;
-            padding: 2px 9px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 700;
-            color: #fff;
-        }
-        .badge-get { background: #34a853; }
-        .badge-post { background: #4285f4; }
-        .badge-put { background: #f9ab00; }
-        .badge-delete { background: #ea4335; }
-        .badge-2xx { background: #34a853; }
-        .badge-3xx { background: #4285f4; }
-        .badge-4xx { background: #f9ab00; }
-        .badge-5xx { background: #ea4335; }
-        </style>
-
-        <section id="sec-theory-2" class="card-panel">
-            <div class="section-header">
-                <div class="section-num">1</div>
-                <div class="section-title">Pydantic Schema &amp; Router trong FastAPI</div>
-            </div>
-
-            <!-- Thanh nút chuyển tab kiến thức -->
-            <div class="tab-nav" role="tablist" aria-label="Chuyển kiến thức Pydantic Schema và Router">
-                <button class="tab-btn active" data-target="tab-pydantic" role="tab" aria-selected="true">
-                    <span class="tab-btn-icon">📦</span> Pydantic Schema
-                </button>
-                <button class="tab-btn" data-target="tab-validation" role="tab" aria-selected="false">
-                    <span class="tab-btn-icon">✅</span> Validation
-                </button>
-                <button class="tab-btn" data-target="tab-separate" role="tab" aria-selected="false">
-                    <span class="tab-btn-icon">🔀</span> Model vs Schema
-                </button>
-                <button class="tab-btn" data-target="tab-router" role="tab" aria-selected="false">
-                    <span class="tab-btn-icon">🧭</span> APIRouter
-                </button>
-                <button class="tab-btn" data-target="tab-crud" role="tab" aria-selected="false">
-                    <span class="tab-btn-icon">🛠️</span> POST &amp; GET /products
-                </button>
-                <button class="tab-btn" data-target="tab-summary2" role="tab" aria-selected="false">
-                    <span class="tab-btn-icon">🔁</span> Tổng kết luồng
-                </button>
-            </div>
-
-            <div class="theory-block">
-
-                <!-- ============ Tab 1: Pydantic Schema là gì ============ -->
-                <div id="tab-pydantic" class="tab-pane active">
-                    <p class="theory-p"><b>Pydantic</b> là thư viện Python dùng để định nghĩa và kiểm tra kiểu dữ liệu (type-safe) thông qua các lớp kế thừa từ <code>BaseModel</code>. FastAPI dùng Pydantic làm "lớp hợp đồng dữ liệu" (data contract) giữa Client và Server.</p>
-
-                    <blockquote class="theory-quote">
-                        <span class="quote-icon">💡</span>
-                        <span class="quote-text"><b>Điểm mấu chốt:</b> Schema không lưu trữ dữ liệu — nó chỉ mô tả <b>hình dạng (shape)</b> dữ liệu hợp lệ. Việc lưu trữ thật sự là nhiệm vụ của <b>Model</b> (SQLAlchemy ORM).</span>
-                    </blockquote>
-
-                    <div class="theory-figure">
-                        <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ vai trò Pydantic Schema trong FastAPI">
-                            <rect x="15" y="70" width="150" height="80" rx="10" fill="#e8f0fe" stroke="#4285f4" stroke-width="2"/>
-                            <text x="90" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">CLIENT</text>
-                            <text x="90" y="120" text-anchor="middle" font-size="11" fill="#555">Gửi JSON Body</text>
-
-                            <line x1="165" y1="95" x2="290" y2="95" stroke="#34a853" stroke-width="2" marker-end="url(#arrG2)"/>
-                            <text x="228" y="85" text-anchor="middle" font-size="10.5" fill="#34a853">POST /products</text>
-
-                            <rect x="290" y="70" width="150" height="80" rx="10" fill="#f3e8fd" stroke="#8b5cf6" stroke-width="2"/>
-                            <text x="365" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">ProductCreate</text>
-                            <text x="365" y="112" text-anchor="middle" font-size="10.5" fill="#555">(Pydantic Schema)</text>
-                            <text x="365" y="127" text-anchor="middle" font-size="10.5" fill="#555">validate dữ liệu vào</text>
-
-                            <line x1="440" y1="110" x2="565" y2="110" stroke="#f9ab00" stroke-width="2" marker-end="url(#arrY2)"/>
-                            <text x="502" y="100" text-anchor="middle" font-size="10.5" fill="#f9ab00">model_dump()</text>
-
-                            <rect x="565" y="70" width="140" height="80" rx="10" fill="#fef7e0" stroke="#f9ab00" stroke-width="2"/>
-                            <text x="635" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">Product</text>
-                            <text x="635" y="112" text-anchor="middle" font-size="10.5" fill="#555">(SQLAlchemy Model)</text>
-                            <text x="635" y="127" text-anchor="middle" font-size="10.5" fill="#555">ghi xuống DB</text>
-
-                            <line x1="365" y1="150" x2="365" y2="180" stroke="#5f6368" stroke-width="2" marker-end="url(#arrGray2)"/>
-                            <text x="365" y="198" text-anchor="middle" font-size="10.5" fill="#555">Nếu sai kiểu / thiếu field → lỗi 422</text>
-
-                            <defs>
-                                <marker id="arrG2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#34a853"/></marker>
-                                <marker id="arrY2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f9ab00"/></marker>
-                                <marker id="arrGray2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#5f6368"/></marker>
-                            </defs>
-                        </svg>
-                        <p class="figure-caption">Hình 1. Pydantic Schema đóng vai trò "cổng kiểm soát" dữ liệu trước khi chạm tới Model/Database.</p>
-                    </div>
-
-                    <h4 class="theory-h4">3 nhóm Schema thường gặp trong một resource:</h4>
-                    <table class="theory-table">
-                        <tr><th>Schema</th><th>Dùng khi</th><th>Đặc điểm</th></tr>
-                        <tr><td><code>ProductCreate</code></td><td>Client gửi lên để tạo mới</td><td>Không có <code>id</code>, các field bắt buộc theo nghiệp vụ</td></tr>
-                        <tr><td><code>ProductUpdate</code></td><td>Client gửi lên để cập nhật</td><td>Thường tất cả field <code>Optional</code></td></tr>
-                        <tr><td><code>ProductResponse</code></td><td>Server trả về cho Client</td><td>Có thêm <code>id</code>, đọc được từ ORM object</td></tr>
-                    </table>
-                </div>
-
-                <!-- ============ Tab 2: Validation ============ -->
-                <div id="tab-validation" class="tab-pane">
-                    <p class="theory-p">Pydantic tự động <b>validate</b> dữ liệu đầu vào dựa trên kiểu dữ liệu (type hint) và các ràng buộc khai báo qua <code>Field()</code>. Nếu dữ liệu không hợp lệ, FastAPI tự trả về lỗi <span class="badge badge-4xx">422</span> <b>trước khi</b> code trong hàm xử lý (endpoint function) được chạy.</p>
-
-                    <h4 class="theory-h4">Schema <code>ProductCreate</code> cho resource "product":</h4>
-                    <div class="code-block"><span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel, Field <br>
-
-        <span class="kw">class</span> ProductCreate(BaseModel):<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;name: <span class="k">str</span> = Field( min_length=<span class="k">1</span>, max_length=<span class="k">100</span>) <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;price: <span class="k">float</span> = Field( gt=<span class="k">0</span>) <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;stock: <span class="k">int</span> = Field( ge=<span class="k">0</span>)</div>
-
-                    <h4 class="theory-h4">Ý nghĩa từng ràng buộc:</h4>
-                    <table class="theory-table">
-                        <tr><th>Khai báo</th><th>Ý nghĩa</th></tr>
-                        <tr><td><code>min_length</code> / <code>max_length</code></td><td>Giới hạn độ dài chuỗi</td></tr>
-                        <tr><td><code>gt=0</code></td><td>Giá trị phải <b>lớn hơn</b> 0 (greater than)</td></tr>
-                        <tr><td><code>ge=0</code></td><td>Giá trị phải <b>lớn hơn hoặc bằng</b> 0 (greater or equal)</td></tr>
-                    </table>
-
-                    <h4 class="theory-h4">Ví dụ request gây lỗi 422:</h4>
-                    <div class="code-block">{
-        <span class="k">"name"</span>: <span class="s">""</span>,
-        <span class="k">"price"</span>: <span class="s">-100</span>,
-        <span class="k">"stock"</span>: <span class="s">"abc"</span>
-        }
-        <span class="c">// → 422 Unprocessable Entity: name rỗng, price âm, stock sai kiểu</span></div>
-
-                    <blockquote class="theory-quote">
-                        <span class="quote-icon">📌</span>
-                        <span class="quote-text">Validation xảy ra <b>tự động</b>, sinh viên không cần viết <code>if</code>/<code>else</code> kiểm tra thủ công cho những ràng buộc cơ bản như bắt buộc nhập, kiểu dữ liệu, khoảng giá trị.</span>
-                    </blockquote>
-                </div>
-
-                <!-- ============ Tab 3: Model vs Schema ============ -->
-                <div id="tab-separate" class="tab-pane">
-                    <p class="theory-p">Một lỗi phổ biến của người mới là dùng <b>chung một lớp</b> cho cả ORM Model và Schema. Cần tách biệt rõ vì hai lớp phục vụ hai mục đích khác nhau.</p>
-
-                    <table class="theory-table">
-                        <tr><th></th><th><code>Product</code> (SQLAlchemy Model)</th><th><code>ProductCreate</code> / <code>ProductResponse</code> (Pydantic Schema)</th></tr>
-                        <tr><td>Vai trò</td><td>Ánh xạ bảng trong database</td><td>Định dạng dữ liệu trao đổi qua API</td></tr>
-                        <tr><td>Kế thừa từ</td><td><code>Base</code> (declarative_base)</td><td><code>BaseModel</code> (Pydantic)</td></tr>
-                        <tr><td>Có <code>id</code>?</td><td>Luôn có, do DB tự sinh</td><td>Chỉ có ở <code>ProductResponse</code>, không có ở <code>ProductCreate</code></td></tr>
-                        <tr><td>Nằm ở đâu</td><td><code>models/product.py</code></td><td><code>schemas/product.py</code></td></tr>
-                    </table>
-
-                    <h4 class="theory-h4">Cầu nối giữa hai lớp: <code>from_attributes</code></h4>
-                    <div class="code-block"><span class="kw">class</span> ProductResponse(BaseModel): <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;id: <span class="k">int</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;name: <span class="k">str</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;price: <span class="k">float</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;stock: <span class="k">int</span><br>
-
-            <span class="kw">&nbsp;&nbsp;&nbsp;&nbsp;class</span> Config:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from_attributes = <span class="k">True</span>  <span class="c"># (Pydantic v2, trước là orm_mode)</span></div>
-                    <p class="theory-p">Nhờ cấu hình này, FastAPI có thể trực tiếp trả về một object <code>Product</code> (ORM) trong hàm xử lý, và Pydantic sẽ tự đọc thuộc tính (<code>.id</code>, <code>.name</code>...) để chuyển thành JSON — không cần convert thủ công.</p>
-                </div>
-
-                <!-- ============ Tab 4: APIRouter ============ -->
-                <div id="tab-router" class="tab-pane">
-                    <p class="theory-p"><b>APIRouter</b> cho phép chia nhỏ các endpoint theo từng resource (products, users, orders...) thành các module riêng, rồi gộp lại tại <code>main.py</code>. Đây là ứng dụng trực tiếp của <b>Layered/Modular Architecture</b> đã học ở phần trước.</p>
-
-                    <div class="theory-figure">
-                        <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ ghép APIRouter vào main app">
-                            <rect x="20" y="20" width="150" height="45" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="2"/>
-                            <text x="95" y="47" text-anchor="middle" font-size="12" fill="#1a1a1a">routers/product.py</text>
-
-                            <rect x="20" y="85" width="150" height="45" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="2"/>
-                            <text x="95" y="112" text-anchor="middle" font-size="12" fill="#1a1a1a">routers/order.py</text>
-
-                            <rect x="20" y="150" width="150" height="45" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="2"/>
-                            <text x="95" y="177" text-anchor="middle" font-size="12" fill="#1a1a1a">routers/user.py</text>
-
-                            <line x1="170" y1="42" x2="330" y2="100" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrM)"/>
-                            <line x1="170" y1="107" x2="330" y2="107" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrM)"/>
-                            <line x1="170" y1="172" x2="330" y2="114" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrM)"/>
-
-                            <rect x="330" y="75" width="170" height="65" rx="10" fill="#fef7e0" stroke="#f9ab00" stroke-width="2"/>
-                            <text x="415" y="102" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">main.py</text>
-                            <text x="415" y="120" text-anchor="middle" font-size="10.5" fill="#555">app.include_router(...)</text>
-
-                            <line x1="500" y1="107" x2="580" y2="107" stroke="#34a853" stroke-width="2" marker-end="url(#arrM)"/>
-                            <rect x="530" y="82" width="90" height="50" rx="8" fill="#e6f4ea" stroke="#34a853" stroke-width="2"/>
-                            <text x="575" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">FastAPI</text>
-                            <text x="575" y="126" text-anchor="middle" font-size="9.5" fill="#555">app</text>
-
-                            <defs><marker id="arrM" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#5f6368"/></marker></defs>
-                        </svg>
-                        <p class="figure-caption">Hình 2. Mỗi resource có một Router riêng, được gộp lại vào app chính qua <code>include_router()</code>.</p>
-                    </div>
-
-                    <h4 class="theory-h4">Khai báo Router cho resource "product":</h4>
-                    <div class="code-block"><span class="kw">from</span> fastapi <span class="kw">import</span> APIRouter<br>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;router = APIRouter(prefix=<span class="s">"/products"</span>, tags=[<span class="s">"Products"</span>])</div>
-
-                    <table class="theory-table">
-                        <tr><th>Tham số</th><th>Ý nghĩa</th></tr>
-                        <tr><td><code>prefix</code></td><td>Tiền tố URL chung cho mọi endpoint trong router này (VD: <code>/products</code>)</td></tr>
-                        <tr><td><code>tags</code></td><td>Nhóm hiển thị trong Swagger UI (<code>/docs</code>) cho dễ nhìn</td></tr>
-                    </table>
-                </div>
-
-                <!-- ============ Tab 5: POST & GET /products ============ -->
-                <div id="tab-crud" class="tab-pane">
-                    <p class="theory-p">Hai endpoint nền tảng của resource "product", theo đúng chuẩn REST đã học: <span class="badge badge-post">POST</span> để tạo, <span class="badge badge-get">GET</span> để đọc.</p>
-
-                    <table class="theory-table">
-                        <tr><th>Method</th><th>Endpoint</th><th>Schema Input</th><th>Schema Output</th><th>Status thành công</th></tr>
-                        <tr><td><span class="badge badge-post">POST</span></td><td><code>/products</code></td><td><code>ProductCreate</code></td><td><code>ProductResponse</code></td><td><span class="badge badge-2xx">201</span> Created</td></tr>
-                        <tr><td><span class="badge badge-get">GET</span></td><td><code>/products/{id}</code></td><td>— (path param)</td><td><code>ProductResponse</code></td><td><span class="badge badge-2xx">200</span> OK</td></tr>
-                    </table>
-
-                    <h4 class="theory-h4">Code hai endpoint:</h4>
-                    <div class="code-block"><span class="kw">@router.post</span>(<span class="s">"/"</span>, response_model=ProductResponse, status_code=<span class="k">201</span>)
-        <span class="kw">def</span> create_product(product: ProductCreate, db: Session = Depends(get_db)):<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;new_product = Product(**product.model_dump())<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;db.add(new_product)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;db.commit()<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;db.refresh(new_product)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> new_product<br><br>
-
-        <span class="kw">@router.get</span>(<span class="s">"/{product_id}"</span>, response_model=ProductResponse) <br>
-        <span class="kw">def</span> get_product(product_id: <span class="k">int</span>, db: Session = Depends(get_db)):<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;product = db.query(Product).filter(Product.id == product_id).first() <br>
-            <span class="kw">&nbsp;&nbsp;&nbsp;&nbsp;if not</span> product:<br>
-                <span class="kw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise</span> HTTPException(status_code=<span class="k">404</span>, detail=<span class="s">"Không tìm thấy sản phẩm"</span>)<br>
-            <span class="kw">&nbsp;&nbsp;&nbsp;&nbsp;return</span> product</div>
-
-                    <h4 class="theory-h4">Vì sao cần <code>response_model</code>?</h4>
-                    <ul class="theory-list">
-                        <li>Đảm bảo dữ liệu trả về đúng "hợp đồng" — chỉ những field khai báo trong <code>ProductResponse</code> mới lộ ra ngoài (ẩn field nhạy cảm nếu có).</li>
-                        <li>Tự sinh tài liệu API mẫu chính xác trong <code>/docs</code> (Swagger UI).</li>
-                        <li>FastAPI tự động chuyển object ORM → JSON nhờ <code>from_attributes = True</code>.</li>
-                    </ul>
-
-                    <blockquote class="theory-quote">
-                        <span class="quote-icon">💡</span>
-                        <span class="quote-text"><code>Depends(get_db)</code> là cơ chế <b>Dependency Injection</b> của FastAPI — tự động mở một phiên kết nối database (<code>Session</code>) cho mỗi request và đóng lại khi request kết thúc.</span>
-                    </blockquote>
-                </div>
-
-                <!-- ============ Tab 6: Tổng kết luồng ============ -->
-                <div id="tab-summary2" class="tab-pane">
-                    <p class="theory-p">Luồng xử lý đầy đủ của <code>POST /products</code> trong dự án <code>store_management</code>:</p>
-
-                    <div class="theory-figure">
-                        <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tổng kết luồng POST products">
-                            <rect x="160" y="10" width="300" height="40" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="2"/>
-                            <text x="310" y="34" text-anchor="middle" font-size="12" fill="#1a1a1a">Client gửi POST /products (JSON)</text>
-
-                            <line x1="310" y1="50" x2="310" y2="73" stroke="#5f6368" stroke-width="2" marker-end="url(#b1)"/>
-
-                            <rect x="130" y="78" width="360" height="40" rx="8" fill="#f3e8fd" stroke="#8b5cf6" stroke-width="2"/>
-                            <text x="310" y="102" text-anchor="middle" font-size="12" fill="#1a1a1a">ProductCreate validate dữ liệu vào</text>
-
-                            <line x1="310" y1="118" x2="310" y2="141" stroke="#5f6368" stroke-width="2" marker-end="url(#b1)"/>
-                            <text x="400" y="133" text-anchor="middle" font-size="9.5" fill="#ea4335">sai → 422</text>
-
-                            <rect x="130" y="146" width="360" height="40" rx="8" fill="#fef7e0" stroke="#f9ab00" stroke-width="2"/>
-                            <text x="310" y="170" text-anchor="middle" font-size="12" fill="#1a1a1a">create_product() trong Router xử lý</text>
-
-                            <line x1="310" y1="186" x2="310" y2="209" stroke="#5f6368" stroke-width="2" marker-end="url(#b1)"/>
-
-                            <rect x="130" y="214" width="360" height="40" rx="8" fill="#fce8e6" stroke="#ea4335" stroke-width="2"/>
-                            <text x="310" y="238" text-anchor="middle" font-size="12" fill="#1a1a1a">Model Product ghi xuống Database</text>
-
-                            <line x1="310" y1="254" x2="310" y2="277" stroke="#5f6368" stroke-width="2" marker-end="url(#b1)"/>
-
-                            <rect x="160" y="282" width="300" height="35" rx="8" fill="#e6f4ea" stroke="#34a853" stroke-width="2"/>
-                            <text x="310" y="304" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">ProductResponse → 201 Created (JSON)</text>
-
-                            <defs><marker id="b1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#5f6368"/></marker></defs>
-                        </svg>
-                        <p class="figure-caption">Hình 3. Luồng xử lý <code>POST /products</code>: Schema validate → Router xử lý → Model ghi DB → Schema trả kết quả.</p>
-                    </div>
-
-                    <h4 class="theory-h4">Request / Response mẫu:</h4>
-                    <div class="code-block">
-                    <span class="c">// Request: POST /products</span><br>
-                    {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"name"</span>: <span class="s">"Bàn phím cơ Keychron K8"</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"price"</span>: <span class="s">1500000</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"stock"</span>: <span class="s">25</span><br>
-                    }<br><br>
-
-                    <span class="c">// Response: 201 Created</span><br>
-                    {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"id"</span>: <span class="s">1</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"name"</span>: <span class="s">"Bàn phím cơ Keychron K8"</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"price"</span>: <span class="s">1500000</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"stock"</span>: <span class="s">25</span><br>
-                    }
-                    </div>
-
-                    <h4 class="theory-h4">Câu hỏi ôn tập (SV tự trả lời trước khi lên lớp):</h4>
-                    <ul class="theory-list">
-                        <li>Vì sao <code>ProductCreate</code> không có field <code>id</code> nhưng <code>ProductResponse</code> thì có?</li>
-                        <li>Điều gì xảy ra nếu Client gửi <code>price: -50</code> lên endpoint <code>POST /products</code>?</li>
-                        <li><code>response_model</code> giúp ích gì khi Model ORM có nhiều field hơn Schema cần trả về?</li>
-                        <li>Vì sao nên tách Router theo từng resource thay vì viết hết endpoint trong <code>main.py</code>?</li>
-                        <li>Tham số <code>product_id</code> trong <code>GET /products/{id}</code> được lấy từ đâu, khác gì với Body của <code>POST</code>?</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <script>
-        (function () {
-            var section = document.getElementById('sec-theory-2');
-            if (!section) return;
-
-            var buttons = section.querySelectorAll('.tab-btn');
-            var panes = section.querySelectorAll('.tab-pane');
-
-            buttons.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    var targetId = btn.getAttribute('data-target');
-
-                    buttons.forEach(function (b) {
-                        b.classList.remove('active');
-                        b.setAttribute('aria-selected', 'false');
-                    });
-                    panes.forEach(function (p) {
-                        p.classList.remove('active');
-                    });
-
-                    btn.classList.add('active');
-                    btn.setAttribute('aria-selected', 'true');
-                    var targetPane = section.querySelector('#' + targetId);
-                    if (targetPane) targetPane.classList.add('active');
-                });
-            });
-        })();
-        </script>
-
 
         <!-- Section 2: Demo Code Phân Tích (LIVE DUAL-LAYER VS CODE HIGHLIGHTING) -->
-        <style>
-        /* Khối code tĩnh - không phụ thuộc JS ngoài, luôn hiển thị đúng */
-        .static-code-block {
-            background: #1e1e2e;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px 0 16px 0;
-        }
-        .static-code-topbar {
-            background: #2a2a3c;
-            padding: 10px 16px;
-            color: #d4d4dc;
-            font-size: 13px;
-            font-weight: 600;
-            font-family: 'Courier New', monospace;
-            border-bottom: 1px solid #383850;
-        }
-        .static-code-body {
-            padding: 16px 18px;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            line-height: 1.7;
-            color: #d4d4dc;
-            overflow-x: auto;
-            white-space: pre;
-        }
-        .static-code-body .kw   { color: #c586c0; }  /* from, import, def, return, class */
-        .static-code-body .fn   { color: #dcdcaa; }  /* tên hàm */
-        .static-code-body .str  { color: #ce9178; }  /* chuỗi */
-        .static-code-body .com  { color: #6a9955; font-style: italic; } /* comment */
-        .static-code-body .num  { color: #b5cea8; }  /* số */
-        .static-code-body .cls  { color: #4ec9b0; }  /* tên biến/hằng/lớp viết hoa */
-        </style>
-
-        <section id="sec-demo-2" class="card-panel">
-            <div class="section-header">
-                <div class="section-num">2</div>
-                <div class="section-title">Ví Dụ Code & Ngữ Cảnh Cụ Thể</div>
-            </div>
-
-            <div class="context-box">
-                <div class="context-title">📌 Ngữ Cảnh Bài Toán: Dự án Store Management — Tạo & Xem sản phẩm</div>
-                <p style="font-size: 0.94rem; color: var(--text-secondary);">
-                    Sau khi đã có <code>GET /api/v1/health</code> và <code>GET /api/v1/store-info</code> ở Buổi 5, bước tiếp theo là cho phép cửa hàng <b>thêm sản phẩm mới</b> và <b>xem chi tiết một sản phẩm</b>.
-                    Ta cần một Schema <code>ProductCreate</code> để kiểm tra dữ liệu Client gửi lên, và một Router riêng cho resource <code>product</code> với 2 endpoint:
-                    <code>POST /api/v1/products</code> và <code>GET /api/v1/products/{id}</code>.<br>
-                    Đoạn code bên dưới trích từ dự án thật <code>store_management</code> — vì đây là code FastAPI cần chạy bằng Uvicorn server và có kết nối database, nên phần này chỉ hiển thị để đọc/tham khảo, không có nút chạy trực tiếp trên trình duyệt.
-                </p>
-            </div>
-
-            <!-- Khối code tĩnh: schemas/product.py -->
-            <div class="static-code-block">
-                <div class="static-code-topbar">🐍 app/schemas/product.py</div>
-                <div class="static-code-body"><span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel, Field
-<span class="kw">class</span> <span class="cls">ProductCreate</span>(BaseModel):
-    <span class="com"># Dữ liệu Client gửi lên khi tạo sản phẩm mới</span>
-    name: <span class="cls">str</span> = Field(min_length=<span class="num">1</span>, max_length=<span class="num">100</span>)
-    price: <span class="cls">float</span> = Field(gt=<span class="num">0</span>)
-    stock: <span class="cls">int</span> = Field(ge=<span class="num">0</span>)
-
-    <span class="kw">class</span> <span class="cls">Config</span>:
-        json_schema_extra = {
-            <span class="str">"example"</span>: {
-                <span class="str">"name"</span>: <span class="str">"Bàn phím cơ Keychron K8"</span>,
-                <span class="str">"price"</span>: <span class="num">1500000</span>,
-                <span class="str">"stock"</span>: <span class="num">25</span>
-            }
-        }
-
-
-<span class="kw">class</span> <span class="cls">ProductResponse</span>(BaseModel):
-    <span class="com"># Dữ liệu server trả về cho Client, có thêm id</span>
-    id: <span class="cls">int</span>
-    name: <span class="cls">str</span>
-    price: <span class="cls">float</span>
-    stock: <span class="cls">int</span>
-
-    <span class="kw">class</span> <span class="cls">Config</span>:
-        from_attributes = <span class="kw">True</span>  <span class="com"># đọc trực tiếp từ ORM object</span></div>
-    </div>
-
-            <!-- Khối code tĩnh: routers/product.py -->
-            <div class="static-code-block">
-                <div class="static-code-topbar">🐍 app/api/v1/routers/product.py</div>
-                <div class="static-code-body"><span class="kw">from</span> fastapi <span class="kw">import</span> APIRouter, Depends, HTTPException
-<span class="kw">from</span> sqlalchemy.orm <span class="kw">import</span> Session
-
-<span class="kw">from</span> app.core.database <span class="kw">import</span> <span class="fn">get_db</span>
-<span class="kw">from</span> app.models.product <span class="kw">import</span> <span class="cls">Product</span>
-<span class="kw">from</span> app.schemas.product <span class="kw">import</span> <span class="cls">ProductCreate</span>, <span class="cls">ProductResponse</span>
-
-router = APIRouter(prefix=<span class="str">"/products"</span>, tags=[<span class="str">"Products"</span>])
-
-<span class="kw">@router.post</span>(<span class="str">"/"</span>, response_model=ProductResponse, status_code=<span class="num">201</span>)
-<span class="kw">def</span> <span class="fn">create_product</span>(product: <span class="cls">ProductCreate</span>, db: Session = Depends(get_db)):
-    <span class="com"># Tương ứng route POST /api/v1/products</span>
-    new_product = <span class="cls">Product</span>(**product.model_dump())
-    db.add(new_product)
-    db.commit()
-    db.refresh(new_product)
-    <span class="kw">return</span> new_product
-
-<span class="kw">@router.get</span>(<span class="str">"/{product_id}"</span>, response_model=ProductResponse)
-<span class="kw">def</span> <span class="fn">get_product</span>(product_id: <span class="cls">int</span>, db: Session = Depends(get_db)):
-    <span class="com"># Tương ứng route GET /api/v1/products/{id}</span>
-    product = db.query(Product).filter(Product.id == product_id).first()
-    <span class="kw">if not</span> product:
-        <span class="kw">raise</span> HTTPException(status_code=<span class="num">404</span>, detail=<span class="str">"Không tìm thấy sản phẩm"</span>)
-    <span class="kw">return</span> product
-</div>
-    </div>
-
-    <div class="context-box" style="margin-top: 16px;">
-        <div class="context-title">🚀 Cách chạy thử API thật</div>
-        <p style="font-size: 0.94rem; color: var(--text-secondary);">
-            Từ thư mục gốc dự án, chạy lệnh <code>uvicorn app.main:app --reload</code>, sau đó test bằng <code>curl</code> hoặc Swagger UI tại <code>http://127.0.0.1:8000/docs</code>:
-        </p>
-    </div>
-
-    <div class="static-code-block">
-        <div class="static-code-topbar">💻 Terminal — test bằng curl</div>
-        <div class="static-code-body"><span class="com"># Tạo sản phẩm mới</span>
-curl -X POST <span class="str">"http://127.0.0.1:8000/api/v1/products/"</span> \
--H <span class="str">"Content-Type: application/json"</span> \
--d <span class="str">'{"name": "Chuột Logitech G102", "price": 350000, "stock": 40}'</span>
-
-<span class="com"># Xem sản phẩm vừa tạo (id = 1)</span>
-curl <span class="str">"http://127.0.0.1:8000/api/v1/products/1"</span></div>
-    </div>
-</section>
-
 
         <!-- Section 3: Bài Tập Thực Hành -->
         <style>
@@ -1859,7 +1290,7 @@ curl <span class="str">"http://127.0.0.1:8000/api/v1/products/1"</span></div>
             color: #f9ab00;
         }
 
-        /* Checklist cho Bài 2 */
+        /* Checklist */
         .exercise-checklist {
             list-style: none;
             padding: 0;
@@ -1899,142 +1330,156 @@ curl <span class="str">"http://127.0.0.1:8000/api/v1/products/1"</span></div>
         .theory-p { font-size: 14px; line-height: 1.7; color: #333; }
         </style>
 
-        <section id="sec-exercise-2" class="card-panel">
+        <section id="sec-miniproject-crud" class="card-panel">
             <div class="section-header">
-                <div class="section-num">3</div>
-                <div class="section-title">Bài Tập Thực Hành</div>
+                <div class="section-num">1</div>
+                <div class="section-title">🚀 Mini Project: Hoàn Thiện API CRUD Quản Lý Sách Thư Viện (RAM)</div>
             </div>
 
-            <!-- ============ Bài 1 ============ -->
+            <p class="theory-p" style="margin-bottom: 18px;">
+                Tiếp nối 2 bài đã làm ở phần trước (<code>BookCreate</code>/<code>BookResponse</code> và <code>POST</code>/<code>GET</code>&nbsp;một sách),
+                mini project này yêu cầu <b>hoàn thiện trọn bộ API RESTful CRUD</b> cho resource sách: thêm Schema <code>BookUpdate</code>,
+                bổ sung endpoint <b>lấy danh sách</b>, <b>cập nhật</b> và <b>xóa</b> sách — tất cả đều dùng <code>response_model</code> và
+                ném <code>HTTPException</code> khi không tìm thấy sách.
+            </p>
+
+            <!-- ============ Bài 3 ============ -->
             <div class="exercise-block">
                 <div class="exercise-title">
-                    <span class="exercise-badge">Bài 1</span>
-                    Định nghĩa Pydantic Schemas: <code>BookCreate</code> &amp; <code>BookResponse</code>
+                    <span class="exercise-badge">Bài 3</span>
+                    Bổ sung Schema <code>BookUpdate</code> &amp; Endpoint <code>GET /books</code> (danh sách)
                 </div>
-                <p class="exercise-goal">Mục tiêu: tự tay lặp lại quy trình đã học với <code>ProductCreate</code>/<code>ProductResponse</code> ở dự án <code>store_management</code>, nhưng đổi ngữ cảnh sang quản lý thư viện.</p>
+                <p class="exercise-goal">Mục tiêu: tạo schema cho phép cập nhật một phần dữ liệu (partial update), và viết endpoint trả về toàn bộ danh sách sách.</p>
 
                 <p class="theory-p">
-                    Trong dự án <code>library_management</code>, tạo file <code>schemas/book.py</code> và định nghĩa 2 Schema:
-                    <code>BookCreate</code> với các field <b>title</b>, <b>author</b>, <b>price</b>, <b>pages</b>; và <code>BookResponse</code> — giống hệt <code>BookCreate</code> nhưng có thêm <b>id</b> để trả về cho Client.
+                    Trong <code>schemas/book.py</code>, thêm <code>BookUpdate</code> — các field giống <code>BookCreate</code> nhưng đều <b>tùy chọn</b> (Client chỉ cần gửi field muốn đổi).
+                    Trong <code>routers/book.py</code>, thêm endpoint <code>GET /books</code> trả về danh sách tất cả sách đang có trong <code>fake_books_db</code>.
                 </p>
 
                 <div class="static-code-block">
                     <div class="static-code-topbar">🐍 schemas/book.py — điền vào chỗ trống</div>
-                    <div class="static-code-body"><span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel, Field
-
-
-<span class="com"># TODO 1: Đặt tên class cho đúng yêu cầu đề bài (schema dữ liệu Client gửi lên)</span>
+                    <div class="static-code-body"><span class="kw">from</span> typing <span class="kw">import</span> Optional
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel, Field
+<span class="com"># ... BookCreate, BookResponse đã viết ở Bài 1 ...</span>
+<span class="com"># TODO 1: Đặt tên class cho schema cập nhật (partial update)</span>
 <span class="kw">class</span> <span class="cls"><span class="fill">______________</span></span>(BaseModel):
-    title: <span class="fill">______</span> = Field(min_length=<span class="num">1</span>, max_length=<span class="num">200</span>)
-    author: <span class="fill">______</span> = Field(min_length=<span class="num">1</span>, max_length=<span class="num">100</span>)
-    <span class="com"># TODO 2: price phải > 0, pages phải > 0 — chọn đúng kiểu dữ liệu và ràng buộc Field</span>
-    price: <span class="fill">______________________</span>
-    pages: <span class="fill">______________________</span>
+    <span class="com"># TODO 2: Bọc kiểu dữ liệu bằng Optional, giá trị mặc định là None</span>
+    title: <span class="fill">________________________</span> = <span class="kw">None</span>
+    author: <span class="fill">________________________</span> = <span class="kw">None</span>
+    price: <span class="fill">________________________</span> = <span class="kw">None</span>
+    pages: <span class="fill">________________________</span> = <span class="kw">None</span></div>
+        </div>
 
-
-<span class="com"># TODO 3: Đặt tên class cho schema dữ liệu trả về Client</span>
-<span class="kw">class</span> <span class="cls"><span class="fill">______________</span></span>(BaseModel):
-    <span class="com"># TODO 4: Field nào cần thêm so với schema ở trên để định danh cuốn sách?</span>
-    <span class="fill">______</span>: <span class="fill">______</span>
-    title: <span class="cls">str</span>
-    author: <span class="cls">str</span>
-    price: <span class="cls">float</span>
-    pages: <span class="cls">int</span></div>
+        <div class="static-code-block">
+            <div class="static-code-topbar">🐍 routers/book.py — điền vào chỗ trống</div>
+            <div class="static-code-body"><span class="com"># TODO 3: Gắn decorator GET đúng path (danh sách, không có {book_id})</span>
+<span class="fill">____________________________________________</span>
+<span class="kw">def</span> <span class="fn">list_books</span>():
+    <span class="com"># TODO 4: Trả về toàn bộ dữ liệu đang có trong fake_books_db</span>
+    <span class="kw">return</span> <span class="fill">______________________</span></div>
         </div>
 
                 <details class="hint-box">
-                    <summary>Gợi ý cho Bài 1</summary>
+                    <summary>Gợi ý cho Bài 3</summary>
                     <div class="hint-content">
-                        - <b>TODO 1</b>: xem lại cách đặt tên trong dự án <code>store_management</code> — schema dùng khi tạo mới thường có hậu tố <code>Create</code>, ví dụ <code>BookCreate</code>.<br>
-                        - <b>TODO 2</b>: <code>price</code> là số có phần thập phân → kiểu <code>float</code>; <code>pages</code> là số nguyên trang sách → kiểu <code>int</code>. Cả hai đều dùng <code>Field(gt=0)</code> vì giá và số trang phải lớn hơn 0.<br>
-                        - <b>TODO 3</b>: schema trả dữ liệu về cho Client thường có hậu tố <code>Response</code>, ví dụ <code>BookResponse</code>.<br>
-                        - <b>TODO 4</b>: <code>BookResponse</code> cần thêm field <code>id: int</code> — đây là mã định danh cuốn sách, do server tự sinh, không có trong <code>BookCreate</code>.
+                        - <b>TODO 1</b>: schema cập nhật thường có hậu tố <code>Update</code>, ví dụ <code>BookUpdate</code>.<br>
+                        - <b>TODO 2</b>: dùng <code>Optional[str]</code>, <code>Optional[float]</code>, <code>Optional[int]</code> — nhớ <code>import Optional from typing</code>.<br>
+                        - <b>TODO 3</b>: <code>@router.get("/", response_model=List[BookResponse])</code> — nhớ <code>from typing import List</code>.<br>
+                        - <b>TODO 4</b>: <code>fake_books_db</code> đang là <code>list</code> thì trả thẳng; nếu bạn đổi sang <code>dict</code> để tra cứu nhanh hơn thì dùng <code>list(fake_books_db.values())</code>.
                     </div>
                 </details>
             </div>
 
-            <!-- ============ Bài 2 ============ -->
+            <!-- ============ Bài 4 ============ -->
             <div class="exercise-block">
                 <div class="exercise-title">
-                    <span class="exercise-badge">Bài 2</span>
-                    Viết 2 API Endpoints: <code>POST /books</code> &amp; <code>GET /books/{id}</code>
+                    <span class="exercise-badge">Bài 4</span>
+                    Viết Endpoint <code>PUT /books/{id}</code> (cập nhật sách)
                 </div>
-                <p class="exercise-goal">Mục tiêu: dùng lại 2 Schema ở Bài 1 để xây Router thêm sách vào RAM và tra cứu chi tiết sách theo id.</p>
-
-                <p class="theory-p">
-                    Tạo file <code>routers/book.py</code>, khai báo một danh sách giả lập <code>fake_books_db</code> trong bộ nhớ (RAM) để lưu sách, sau đó hoàn thiện 2 endpoint bên dưới.
-                </p>
+                <p class="exercise-goal">Mục tiêu: cho phép sửa một phần thông tin sách đã có, chỉ ghi đè những field Client thực sự gửi lên.</p>
 
                 <div class="static-code-block">
                     <div class="static-code-topbar">🐍 routers/book.py — điền vào chỗ trống</div>
-                    <div class="static-code-body"><span class="kw">from</span> fastapi <span class="kw">import</span> APIRouter, HTTPException
-<span class="kw">from</span> schemas.book <span class="kw">import</span> BookCreate, BookResponse
-
-<span class="com"># TODO 1: Khai báo router với đúng prefix "/books" (giống cú pháp store_management)</span>
-router = <span class="fill">______________________________</span>
-
-<span class="com"># Danh sách giả lập trong RAM + biến đếm id</span>
-fake_books_db = []
-next_id = <span class="num">1</span>
-
-
-<span class="com"># TODO 2: Gắn decorator đúng method (POST), đúng response_model và status_code=201</span>
+                    <div class="static-code-body"><span class="com"># TODO 1: Gắn decorator PUT đúng path, đúng response_model</span>
 <span class="fill">____________________________________________</span>
-<span class="kw">def</span> <span class="fn">create_book</span>(book: BookCreate):
-    <span class="kw">global</span> next_id
-    <span class="com"># TODO 3: Tạo dict sách mới gồm id (=next_id) và dữ liệu từ "book"</span>
-    new_book = <span class="fill">______________________________</span>
-    <span class="com"># TODO 4: Thêm new_book vào fake_books_db, rồi tăng next_id lên 1</span>
-    <span class="fill">______________________</span>
-    <span class="fill">______________________</span>
-    <span class="kw">return</span> new_book
+<span class="kw">def</span> <span class="fn">update_book</span>(book_id: <span class="cls">int</span>, book_update: BookUpdate):
+    <span class="com"># TODO 2: Tìm sách theo book_id — nếu không có thì ném 404 (dùng lại logic đã viết ở Bài 2)</span>
+    book = <span class="fill">______________________</span>
 
+    <span class="com"># TODO 3: Chỉ lấy những field Client THỰC SỰ gửi lên (gợi ý: exclude_unset=True)</span>
+    update_data = book_update.model_dump(<span class="fill">______________________</span>)
 
-<span class="com"># TODO 5: Gắn decorator đúng method (GET), đúng path có tham số book_id</span>
-<span class="fill">____________________________________________</span>
-<span class="kw">def</span> <span class="fn">get_book</span>(book_id: <span class="cls">int</span>):
-    <span class="com"># TODO 6: Tìm sách có "id" == book_id trong fake_books_db</span>
-    <span class="kw">for</span> book <span class="kw">in</span> fake_books_db:
-        <span class="kw">if</span> <span class="fill">______________________</span>:
-            <span class="kw">return</span> book
-    <span class="com"># TODO 7: Không tìm thấy → trả lỗi 404 kèm thông báo phù hợp</span>
-    <span class="kw">raise</span> <span class="fill">______________________________________</span></div>
+    <span class="com"># TODO 4: Ghi đè các field mới vào sách cũ</span>
+    <span class="fill">______________________</span>
+
+    <span class="kw">return</span> book</div>
         </div>
 
                 <details class="hint-box">
-                    <summary>Gợi ý cho Bài 2</summary>
+                    <summary>Gợi ý cho Bài 4</summary>
                     <div class="hint-content">
-                        - <b>TODO 1</b>: <code>APIRouter(prefix="/books", tags=["Books"])</code> — giống hệt cách khai báo router cho <code>product</code>.<br>
-                        - <b>TODO 2</b>: <code>@router.post("/", response_model=BookResponse, status_code=201)</code>.<br>
-                        - <b>TODO 3</b>: dùng <code>book.model_dump()</code> để lấy dữ liệu từ Schema, rồi ghép với <code>id</code>, ví dụ: <code>{"id": next_id, **book.model_dump()}</code>.<br>
-                        - <b>TODO 4</b>: <code>fake_books_db.append(new_book)</code> rồi <code>next_id += 1</code>.<br>
-                        - <b>TODO 5</b>: <code>@router.get("/{book_id}", response_model=BookResponse)</code>.<br>
-                        - <b>TODO 6</b>: so sánh <code>book["id"] == book_id</code>.<br>
-                        - <b>TODO 7</b>: <code>HTTPException(status_code=404, detail="Không tìm thấy sách")</code>.<br>
-                        - Đừng quên <code>include_router(book.router, prefix="/api/v1")</code> ở <code>app/main.py</code> giống dự án mẫu.
-                    </div>
-                </details>
-
-                <p class="theory-p" style="margin-top: 18px;"><b>Sau khi hoàn thiện code, test lại bằng checklist sau:</b></p>
-                <ul class="exercise-checklist">
-                    <li><input type="checkbox"> Kích hoạt venv của dự án <code>library_management</code></li>
-                    <li><input type="checkbox"> Chạy lệnh <code>uvicorn app.main:app --reload</code> từ thư mục gốc dự án</li>
-                    <li><input type="checkbox"> Mở trình duyệt tại <code>http://127.0.0.1:8000/docs</code></li>
-                    <li><input type="checkbox"> Tìm endpoint <code>POST /api/v1/books</code>, bấm <b>"Try it out"</b>, nhập dữ liệu sách mẫu → <b>"Execute"</b>, kiểm tra <b>Response code = 201</b></li>
-                    <li><input type="checkbox"> Ghi lại <code>id</code> vừa được tạo trong Response body</li>
-                    <li><input type="checkbox"> Tìm endpoint <code>GET /api/v1/books/{id}</code>, nhập đúng <code>id</code> vừa ghi lại → <b>"Execute"</b>, kiểm tra <b>Response code = 200</b> và dữ liệu khớp với sách vừa thêm</li>
-                    <li><input type="checkbox"> Thử nhập một <code>id</code> không tồn tại (ví dụ 999) → kiểm tra <b>Response code = 404</b></li>
-                </ul>
-
-                <details class="hint-box">
-                    <summary>Gợi ý xử lý lỗi thường gặp</summary>
-                    <div class="hint-content">
-                        - Nếu Response luôn trả <code>null</code> hoặc thiếu field → kiểm tra lại <code>response_model=BookResponse</code> đã khai đúng field chưa.<br>
-                        - Nếu <code>GET /books/{id}</code> luôn báo 404 dù vừa POST thành công → kiểm tra <code>fake_books_db</code> có bị khai báo lại (reset) ở đâu đó trong code không.<br>
-                        - Nếu báo lỗi <code>Address already in use</code> → đổi cổng: <code>uvicorn app.main:app --reload --port 8001</code> (nhớ đổi luôn URL Swagger UI tương ứng).
+                        - <b>TODO 1</b>: <code>@router.put("/{book_id}", response_model=BookResponse)</code>.<br>
+                        - <b>TODO 2</b>: nên tách logic "tìm sách hoặc ném 404" thành một hàm dùng chung (ví dụ <code>_get_book_or_404(book_id)</code>) để không phải viết lại ở cả <code>GET</code>, <code>PUT</code>, <code>DELETE</code>.<br>
+                        - <b>TODO 3</b>: <code>exclude_unset=True</code> — nếu không có tham số này, những field Client không gửi sẽ bị Pydantic điền giá trị <code>None</code> và ghi đè mất dữ liệu cũ.<br>
+                        - <b>TODO 4</b>: nếu sách đang là <code>dict</code>, dùng <code>book.update(update_data)</code>.
                     </div>
                 </details>
             </div>
+
+            <!-- ============ Bài 5 ============ -->
+            <div class="exercise-block">
+                <div class="exercise-title">
+                    <span class="exercise-badge">Bài 5</span>
+                    Viết Endpoint <code>DELETE /books/{id}</code> (xóa sách)
+                </div>
+                <p class="exercise-goal">Mục tiêu: xóa hẳn một cuốn sách khỏi RAM, trả về đúng status code chuẩn REST khi xóa thành công.</p>
+
+                <div class="static-code-block">
+                    <div class="static-code-topbar">🐍 routers/book.py — điền vào chỗ trống</div>
+                    <div class="static-code-body"><span class="com"># TODO 1: Gắn decorator DELETE đúng path, đúng status_code khi xóa thành công</span>
+<span class="fill">____________________________________________</span>
+<span class="kw">def</span> <span class="fn">delete_book</span>(book_id: <span class="cls">int</span>):
+    <span class="com"># TODO 2: Kiểm tra sách có tồn tại không — nếu không thì ném 404</span>
+    <span class="fill">______________________</span>
+
+    <span class="com"># TODO 3: Xóa sách khỏi fake_books_db</span>
+    <span class="fill">______________________</span>
+
+    <span class="kw">return</span> <span class="kw">None</span></div>
+        </div>
+
+                <details class="hint-box">
+                    <summary>Gợi ý cho Bài 5</summary>
+                    <div class="hint-content">
+                        - <b>TODO 1</b>: <code>@router.delete("/{book_id}", status_code=204)</code> — 204 nghĩa là "thành công nhưng không có nội dung trả về".<br>
+                        - <b>TODO 2</b>: dùng lại hàm tìm sách hoặc ném 404 đã viết ở Bài 4.<br>
+                        - <b>TODO 3</b>: nếu <code>fake_books_db</code> là <code>dict</code>, dùng <code>del fake_books_db[book_id]</code>; nếu là <code>list</code>, dùng <code>fake_books_db.remove(book)</code>.<br>
+                        - Với status <code>204</code>, hàm <b>không được trả về body dữ liệu</b> — chỉ <code>return None</code>.
+                    </div>
+                </details>
+            </div>
+
+            <!-- ============ Checklist tổng hợp toàn bộ CRUD ============ -->
+            <p class="theory-p" style="margin-top: 4px;"><b>Sau khi hoàn thiện đủ 5 endpoint, test lại toàn bộ CRUD bằng checklist sau:</b></p>
+            <ul class="exercise-checklist">
+                <li><input type="checkbox"> Chạy <code>uvicorn app.main:app --reload</code>, mở <code>http://127.0.0.1:8000/docs</code></li>
+                <li><input type="checkbox"> <code>POST /api/v1/books</code> — thêm 2 cuốn sách mẫu, kiểm tra <b>201</b> và <code>id</code> tự tăng đúng (1, 2, ...)</li>
+                <li><input type="checkbox"> <code>GET /api/v1/books</code> — kiểm tra trả về đúng <b>danh sách 2 sách</b> vừa thêm</li>
+                <li><input type="checkbox"> <code>GET /api/v1/books/{id}</code> — kiểm tra lấy đúng chi tiết 1 sách, status <b>200</b></li>
+                <li><input type="checkbox"> <code>PUT /api/v1/books/{id}</code> — chỉ gửi 1 field (ví dụ <code>price</code>), kiểm tra các field khác <b>không bị mất</b></li>
+                <li><input type="checkbox"> <code>DELETE /api/v1/books/{id}</code> — kiểm tra status <b>204</b>, sau đó <code>GET</code> lại id đó phải trả về <b>404</b></li>
+                <li><input type="checkbox"> Gọi <code>GET /api/v1/books/999</code> (id không tồn tại) — kiểm tra status <b>404</b> kèm message rõ ràng</li>
+                <li><input type="checkbox"> Gọi <code>POST</code> với <code>price</code> âm hoặc thiếu field — kiểm tra status <b>422</b></li>
+            </ul>
+
+            <details class="hint-box">
+                <summary>Gợi ý xử lý lỗi thường gặp</summary>
+                <div class="hint-content">
+                    - Nếu <code>PUT</code> làm mất dữ liệu các field không gửi lên → quên <code>exclude_unset=True</code> ở <code>model_dump()</code>.<br>
+                    - Nếu <code>DELETE</code> báo lỗi 500 thay vì 204 → kiểm tra hàm có <code>return</code> giá trị nào đó thay vì <code>None</code> khi <code>status_code=204</code>.<br>
+                    - Nếu <code>GET /books/{id}</code> luôn 404 dù vừa <code>POST</code> thành công → kiểm tra <code>fake_books_db</code> có đang bị khai báo lại (reset) ở đâu đó trong code không.
+                </div>
+            </details>
         </section>
 
 
@@ -2226,7 +1671,7 @@ next_id = <span class="num">1</span>
             <!-- Single Clean Primary Card for Word Document -->
             <div class="resource-single-card">
                 <div>
-                    <h3 id="resourceFileTitle" style="color: var(--accent-red-dark); margin-bottom: 6px; font-weight: 800;">📄 File Word Bài Tập: BT_Day06_PythonWeb.docx</h3>
+                    <h3 id="resourceFileTitle" style="color: var(--accent-red-dark); margin-bottom: 6px; font-weight: 800;">📄 File Word Bài Tập: BT_Day07_PythonWeb.docx</h3>
                     <p id="resourceFileDesc" style="font-size: 0.95rem; color: var(--text-secondary);">
                         Phiếu bài tập Word tổng hợp hoàn chỉnh (30 - 40 phút), chứa đầy đủ đề bài CRUD List/Dict/Set, List Comprehension, Kết quả đầu ra kỳ vọng và hướng dẫn nộp bài lên GitHub.
                     </p>
@@ -2243,10 +1688,10 @@ next_id = <span class="num">1</span>
                 ⬅️ Trang Chủ Portal
             </a>
             <span style="font-weight: 800; color: #64748b; font-size: 0.9rem;">
-                📌 Đang học: Bài 06 / 14
+                📌 Đang học: Bài 07 / 14
             </span>
-            <a href="../day07/BT_Day07_FastAPI.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent-red); color: #ffffff; text-decoration: none; font-weight: 800; font-size: 0.95rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25); transition: all 0.2s;">
-                Bài 7: Mini Project 1 ➡️
+            <a href="../day08/BT_Day08_FastAPI.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent-red); color: #ffffff; text-decoration: none; font-weight: 800; font-size: 0.95rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25); transition: all 0.2s;">
+                Bài 8: Kết Nối MySQL Workbench & SQLAlchemy ORM Cơ Bản ➡️
             </a>
         </nav>
 
@@ -2277,8 +1722,8 @@ next_id = <span class="num">1</span>
     <script>
         let pyEngine = null;
         let pyodidePromise = null;
-        let currentActiveLessonId = "DAY_06";
-        const CURRENT_LESSON_ID = "DAY_06";
+        let currentActiveLessonId = "DAY_07";
+        const CURRENT_LESSON_ID = "DAY_07";
         let ex1Passed = false;
         let ex2Passed = false;
         const TEACHER_PASSWORD_KEY = "rikkeiedu";
