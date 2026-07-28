@@ -1644,6 +1644,7 @@
         .static-code-body .com  { color: #6a9955; font-style: italic; } /* comment */
         .static-code-body .num  { color: #b5cea8; }  /* số */
         .static-code-body .cls  { color: #4ec9b0; }  /* tên biến/hằng viết hoa */
+        .static-code-body .dec  { color: #dcdcaa; }  /* decorator @app.get(...) */
         </style>
 
         <section id="sec-demo" class="card-panel">
@@ -1663,16 +1664,22 @@
 
             <!-- Khối code tĩnh, không cần JS -->
             <div class="static-code-block">
-                <div class="static-code-topbar">🐍 app/api/v1/endpoints.py</div>
+                <div class="static-code-topbar">🐍 app/main.py</div>
                 <div class="static-code-body"><span class="kw">from</span> datetime <span class="kw">import</span> datetime, timezone
-<span class="kw">from</span> fastapi <span class="kw">import</span> APIRouter
-<span class="kw">from</span> app.core.config <span class="kw">import</span> <span class="cls">STORE_INFO</span>
+<span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
 
-router = APIRouter()
+app = FastAPI()
+
+<span class="com"># Mock data - thông tin cửa hàng mẫu</span>
+<span class="cls">STORE_INFO</span> = {
+    <span class="str">"store_name"</span>: <span class="str">"ABC Convenience Store"</span>,
+    <span class="str">"address"</span>: <span class="str">"123 Nguyen Trai, Ha Noi"</span>,
+    <span class="str">"opening_hours"</span>: <span class="str">"08:00 - 22:00"</span>
+}
 
 
+<span class="dec">@app.get(<span class="str">"/api/v1/health"</span>)</span>
 <span class="kw">def</span> <span class="fn">health_check</span>():
-    <span class="com"># Tương ứng route GET /api/v1/health</span>
     <span class="kw">return</span> {
         <span class="str">"status"</span>: <span class="str">"ok"</span>,
         <span class="str">"timestamp"</span>: datetime.now(timezone.utc).isoformat(),
@@ -1680,13 +1687,9 @@ router = APIRouter()
     }
 
 
+<span class="dec">@app.get(<span class="str">"/api/v1/store-info"</span>)</span>
 <span class="kw">def</span> <span class="fn">get_store_info</span>():
-    <span class="com"># Tương ứng route GET /api/v1/store-info</span>
-    <span class="kw">return</span> <span class="cls">STORE_INFO</span>
-
-
-router.get(<span class="str">"/health"</span>)(health_check)
-router.get(<span class="str">"/store-info"</span>)(get_store_info)</div>
+    <span class="kw">return</span> <span class="cls">STORE_INFO</span></div>
             </div>
 
             <div class="context-box" style="margin-top: 16px;">
@@ -1801,6 +1804,7 @@ router.get(<span class="str">"/store-info"</span>)(get_store_info)</div>
         .static-code-body .str { color: #ce9178; }
         .static-code-body .com { color: #6a9955; font-style: italic; }
         .static-code-body .cls { color: #4ec9b0; }
+        .static-code-body .dec { color: #dcdcaa; }
         .static-code-body .todo { color: #f9ab00; font-weight: 700; }
         .static-code-body .fill {
             display: inline-block;
@@ -1847,6 +1851,7 @@ router.get(<span class="str">"/store-info"</span>)(get_store_info)</div>
         .screenshot-upload .upload-icon { font-size: 26px; display: block; margin-bottom: 8px; }
         </style>
 
+        <!-- Section 3: Bài tập thực hành -->
         <section id="sec-exercise" class="card-panel">
             <div class="section-header">
                 <div class="section-num">3</div>
@@ -1862,41 +1867,38 @@ router.get(<span class="str">"/store-info"</span>)(get_store_info)</div>
                 <p class="exercise-goal">Mục tiêu: tự tay lặp lại quy trình đã học ở dự án <code>store_management</code>, nhưng đổi ngữ cảnh sang quản lý thư viện.</p>
 
                 <p class="theory-p">
-                    Trên laptop cá nhân, tạo một dự án FastAPI mới tên <code>library_management</code> (venv riêng, cấu trúc thư mục
-                    <code>app/main.py</code>, <code>app/api/v1/endpoints.py</code>, <code>app/core/config.py</code> — giống hệt dự án mẫu Buổi 1).
+                    Trên laptop cá nhân, tạo một dự án FastAPI mới tên <code>library_management</code> (venv riêng, chỉ cần
+                    1 file <code>app/main.py</code> — giống hệt dự án mẫu Buổi 1).
                     Sau đó định nghĩa endpoint <code>GET /api/v1/library-info</code> trả về <b>tên thư viện</b>, <b>địa chỉ</b>, <b>giờ mở cửa</b>.
                 </p>
 
                 <div class="static-code-block">
-                    <div class="static-code-topbar">🐍 app/api/v1/endpoints.py — điền vào chỗ trống</div>
-                    <div class="static-code-body"><span class="kw">from</span> fastapi <span class="kw">import</span> APIRouter
+                    <div class="static-code-topbar">🐍 app/main.py — điền vào chỗ trống</div>
+                    <div class="static-code-body"><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
 
-<span class="com"># TODO 1: Khai báo router (giống hệt cú pháp bên dự án store_management)</span>
-router = <span class="fill">______________</span>
+<span class="com"># TODO 1: Khởi tạo app (giống hệt cú pháp bên dự án store_management)</span>
+app = <span class="fill">______________</span>
+
+<span class="com"># TODO 2: Điền key và value cho đúng yêu cầu đề bài</span>
+<span class="cls">LIBRARY_INFO</span> = {
+    <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">Thư viện ABC</span>"</span>,
+    <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">____________</span>"</span>,
+    <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">____________</span>"</span>
+}
 
 
-<span class="com"># TODO 2: Đặt tên hàm cho hợp lý, ví dụ get_library_info</span>
+<span class="com"># TODO 3: Gắn decorator route GET đúng path /api/v1/library-info</span>
+<span class="dec">@app.get(<span class="str">"<span class="fill">______________________</span>"</span>)</span>
 <span class="kw">def</span> <span class="fn"><span class="fill">____________</span></span>():
-    <span class="kw">return</span> {
-        <span class="com"># TODO 3: Điền key và value cho đúng yêu cầu đề bài</span>
-        <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">Thư viện ABC</span>"</span>,
-        <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">____________</span>"</span>,
-        <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">____________</span>"</span>
-    }
-
-
-<span class="com"># TODO 4: Gắn route GET đúng path /library-info</span>
-router.get(<span class="str">"<span class="fill">____________</span>"</span>)(<span class="fill">____________</span>)</div>
+    <span class="kw">return</span> <span class="cls">LIBRARY_INFO</span></div>
                 </div>
 
                 <details class="hint-box">
                     <summary>Gợi ý cho Bài 1</summary>
                     <div class="hint-content">
-                        - <b>TODO 1</b>: xem lại cách khai báo trong dự án <code>store_management</code> — chỉ có 1 dòng, dùng class đã import ở trên.<br>
-                        - <b>TODO 2</b>: tên hàm nên mô tả đúng việc hàm làm, viết bằng <code>snake_case</code> (ví dụ: <code>get_library_info</code>).<br>
-                        - <b>TODO 3</b>: đề bài yêu cầu 3 trường dữ liệu — key nên đặt bằng tiếng Anh, không dấu, không khoảng trắng (ví dụ dạng <code>library_name</code>, <code>address</code>, <code>opening_hours</code>).<br>
-                        - <b>TODO 4</b>: path phải khớp với endpoint yêu cầu trong đề (<code>/library-info</code>), tham số thứ 2 là tên hàm đã định nghĩa ở TODO 2 (không có dấu ngoặc, không gọi hàm).<br>
-                        - Đừng quên <code>include_router(...)</code> ở <code>app/main.py</code> với <code>prefix="/api/v1"</code> giống dự án mẫu.
+                        - <b>TODO 1</b>: xem lại cách khởi tạo trong dự án <code>store_management</code> — chỉ có 1 dòng, dùng class đã import ở trên.<br>
+                        - <b>TODO 2</b>: đề bài yêu cầu 3 trường dữ liệu — key nên đặt bằng tiếng Anh, không dấu, không khoảng trắng (ví dụ dạng <code>library_name</code>, <code>address</code>, <code>opening_hours</code>).<br>
+                        - <b>TODO 3</b>: path phải khớp đúng endpoint yêu cầu trong đề (<code>/api/v1/library-info</code>); tên hàm nên mô tả đúng việc hàm làm, viết bằng <code>snake_case</code> (ví dụ: <code>get_library_info</code>).
                     </div>
                 </details>
             </div>
@@ -1925,6 +1927,7 @@ router.get(<span class="str">"<span class="fill">____________</span>"</span>)(<s
                         - Nếu báo lỗi <code>Address already in use</code> → đổi cổng: <code>uvicorn app.main:app --reload --port 8001</code> (nhớ đổi luôn URL Swagger UI tương ứng).<br>
                     </div>
                 </details>
+
             </div>
         </section>
 
@@ -2126,13 +2129,13 @@ router.get(<span class="str">"<span class="fill">____________</span>"</span>)(<s
             <!-- Single Clean Primary Card for Word Document -->
             <div class="resource-single-card">
                 <div>
-                    <h3 id="resourceFileTitle" style="color: var(--accent-red-dark); margin-bottom: 6px; font-weight: 800;">📄 File Word Bài Tập: BT_Day01_PythonCore.docx</h3>
+                    <h3 id="resourceFileTitle" style="color: var(--accent-red-dark); margin-bottom: 6px; font-weight: 800;">📄 File Word Bài Tập: BT_Day05_PythonWeb.docx</h3>
                     <p id="resourceFileDesc" style="font-size: 0.95rem; color: var(--text-secondary);">
                         Phiếu bài tập Word tổng hợp hoàn chỉnh (30 - 40 phút), chứa đầy đủ đề bài CRUD List/Dict/Set, List Comprehension, Kết quả đầu ra kỳ vọng và hướng dẫn nộp bài lên GitHub.
                     </p>
                 </div>
                 <div>
-                    <a id="resourceFileBtn" href="BT_Day01_PythonCore.docx" download style="display:inline-block; padding:12px 24px; background:var(--accent-red); color:#ffffff; text-decoration:none; font-weight:800; border-radius:var(--radius-sm); font-size:0.95rem; white-space:nowrap; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);">📥 Tải File Word Bài Tập (.docx)</a>
+                    <a id="resourceFileBtn" href="BT_Day05_PythonWeb.docx" download style="display:inline-block; padding:12px 24px; background:var(--accent-red); color:#ffffff; text-decoration:none; font-weight:800; border-radius:var(--radius-sm); font-size:0.95rem; white-space:nowrap; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);">📥 Tải File Word Bài Tập (.docx)</a>
                 </div>
             </div>
         </section>
@@ -2143,10 +2146,10 @@ router.get(<span class="str">"<span class="fill">____________</span>"</span>)(<s
                 ⬅️ Trang Chủ Portal
             </a>
             <span style="font-weight: 800; color: #64748b; font-size: 0.9rem;">
-                📌 Đang học: Bài 01 / 14
+                📌 Đang học: Bài 05 / 14
             </span>
-            <a href="../day02/day02_python_core.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent-red); color: #ffffff; text-decoration: none; font-weight: 800; font-size: 0.95rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25); transition: all 0.2s;">
-                Bài 2: Flag, Count & Validation ➡️
+            <a href="../day05/BT_Day05_FastAPI.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent-red); color: #ffffff; text-decoration: none; font-weight: 800; font-size: 0.95rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25); transition: all 0.2s;">
+                Bài 6: Pydantic Schemas ➡️
             </a>
         </nav>
 
@@ -2189,7 +2192,7 @@ router.get(<span class="str">"<span class="fill">____________</span>"</span>)(<s
             "DAY_05": {
                 badge: "Tuần 1 • Ngày 4",
                 title: "Python Web 1 — FastAPI Architecture, Uvicorn & Swagger UI",
-                file: "BT_Day01_PythonCore.docx",
+                file: "BT_Day05_PythonWeb.docx",
                 desc: "Phiếu bài tập Word tổng hợp làm sạch dữ liệu giỏ hàng, CRUD List/Dict/Set và List Comprehension."
             },
             "DAY_02": {
