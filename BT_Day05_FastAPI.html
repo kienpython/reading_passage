@@ -1961,13 +1961,17 @@ router.get(<span class="str">"<span class="fill">____________</span>"</span>)(<s
                             <label class="form-label">Lớp Học *</label>
                             <select id="subClass" class="form-input" required style="cursor:pointer; font-weight:600;">
                                 <option value="">-- Chọn Lớp --</option>
-                                <option value="CNTT1">Lớp CNTT1</option>
-                                <option value="CNTT2">Lớp CNTT2</option>
-                                <option value="CNTT3">Lớp CNTT3</option>
-                                <option value="CNTT4">Lớp CNTT4</option>
-                                <option value="CNTT5">Lớp CNTT5</option>
-                                <option value="CNTT6">Lớp CNTT6</option>
-                                <option value="CNTT8">Lớp CNTT8</option>
+                                <option value="HN-KS25-CNTT1">HN-KS25-CNTT1</option>
+                                <option value="HN-KS25-CNTT2">HN-KS25-CNTT2</option>
+                                <option value="HN-KS25-CNTT3">HN-KS25-CNTT3</option>
+                                <option value="HN-KS25-CNTT4">HN-KS25-CNTT4</option>
+                                <option value="HN-KS25-CNTT5">HN-KS25-CNTT5</option>
+                                <option value="HN-KS25-CNTT6">HN-KS25-CNTT6</option>
+                                <option value="HN-KS25-CNTT8">HN-KS25-CNTT8</option>
+                                <option value="HCM-KS25-CNTT5">HCM-KS25-CNTT5</option>
+                                <option value="HCM-KS25-CNTT6">HCM-KS25-CNTT6</option>
+                                <option value="HCM-KS25-CNTT7">HCM-KS25-CNTT7</option>
+                                <option value="HCM-KS25-CNTT8">HCM-KS25-CNTT8</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -2040,13 +2044,17 @@ router.get(<span class="str">"<span class="fill">____________</span>"</span>)(<s
                             <label style="font-weight: 700; font-size: 0.9rem;">🎯 Lọc Theo Lớp Học:</label>
                             <select id="filterClassSelect" onchange="loadSubmissionsTable()" class="form-input" style="width: auto; height: 36px; padding: 0 16px; font-weight: 700; cursor: pointer;">
                                 <option value="ALL">--- Tất Cả Các Lớp ---</option>
-                                <option value="CNTT1">Lớp CNTT1</option>
-                                <option value="CNTT2">Lớp CNTT2</option>
-                                <option value="CNTT3">Lớp CNTT3</option>
-                                <option value="CNTT4">Lớp CNTT4</option>
-                                <option value="CNTT5">Lớp CNTT5</option>
-                                <option value="CNTT6">Lớp CNTT6</option>
-                                <option value="CNTT8">Lớp CNTT8</option>
+                                <option value="HN-KS25-CNTT1">HN-KS25-CNTT1</option>
+                                <option value="HN-KS25-CNTT2">HN-KS25-CNTT2</option>
+                                <option value="HN-KS25-CNTT3">HN-KS25-CNTT3</option>
+                                <option value="HN-KS25-CNTT4">HN-KS25-CNTT4</option>
+                                <option value="HN-KS25-CNTT5">HN-KS25-CNTT5</option>
+                                <option value="HN-KS25-CNTT6">HN-KS25-CNTT6</option>
+                                <option value="HN-KS25-CNTT8">HN-KS25-CNTT8</option>
+                                <option value="HCM-KS25-CNTT5">HCM-KS25-CNTT5</option>
+                                <option value="HCM-KS25-CNTT6">HCM-KS25-CNTT6</option>
+                                <option value="HCM-KS25-CNTT7">HCM-KS25-CNTT7</option>
+                                <option value="HCM-KS25-CNTT8">HCM-KS25-CNTT8</option>
                             </select>
                         </div>
 
@@ -2056,35 +2064,18 @@ router.get(<span class="str">"<span class="fill">____________</span>"</span>)(<s
                     </div>
 
                     <!-- Breakdown per class counter -->
-                    <div class="class-stats-grid">
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT1</div>
-                            <div class="class-stat-num" id="stat-CNTT1">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT2</div>
-                            <div class="class-stat-num" id="stat-CNTT2">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT3</div>
-                            <div class="class-stat-num" id="stat-CNTT3">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT4</div>
-                            <div class="class-stat-num" id="stat-CNTT4">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT5</div>
-                            <div class="class-stat-num" id="stat-CNTT5">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT6</div>
-                            <div class="class-stat-num" id="stat-CNTT6">0</div>
-                        </div>
-                        <div class="class-stat-card">
-                            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CNTT8</div>
-                            <div class="class-stat-num" id="stat-CNTT8">0</div>
-                        </div>
+                    <div class="class-stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT1</div><div class="class-stat-num" id="stat-HN-KS25-CNTT1">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT2</div><div class="class-stat-num" id="stat-HN-KS25-CNTT2">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT3</div><div class="class-stat-num" id="stat-HN-KS25-CNTT3">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT4</div><div class="class-stat-num" id="stat-HN-KS25-CNTT4">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT5</div><div class="class-stat-num" id="stat-HN-KS25-CNTT5">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT6</div><div class="class-stat-num" id="stat-HN-KS25-CNTT6">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HN-KS25-CNTT8</div><div class="class-stat-num" id="stat-HN-KS25-CNTT8">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HCM-KS25-CNTT5</div><div class="class-stat-num" id="stat-HCM-KS25-CNTT5">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HCM-KS25-CNTT6</div><div class="class-stat-num" id="stat-HCM-KS25-CNTT6">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HCM-KS25-CNTT7</div><div class="class-stat-num" id="stat-HCM-KS25-CNTT7">0</div></div>
+                        <div class="class-stat-card"><div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">HCM-KS25-CNTT8</div><div class="class-stat-num" id="stat-HCM-KS25-CNTT8">0</div></div>
                     </div>
                 </div>
 
