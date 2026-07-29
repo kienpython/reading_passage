@@ -1705,237 +1705,12 @@ app = FastAPI()
 
 
         <!-- Section 3: Bài Tập Thực Hành -->
-        <style>
-        .exercise-block {
-            margin-bottom: 26px;
-            padding-bottom: 22px;
-            border-bottom: 1px dashed #e0e3e8;
-        }
-        .exercise-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .exercise-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
-        .exercise-badge {
-            background: linear-gradient(135deg, #4285f4, #1a56d6);
-            color: #fff;
-            font-size: 12.5px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 999px;
-        }
-        .exercise-goal {
-            font-size: 13.5px;
-            color: #666;
-            margin: -4px 0 14px 0;
-            font-style: italic;
-        }
-
-        /* Blank cần điền */
-        .blank {
-            display: inline-block;
-            min-width: 90px;
-            border-bottom: 2px dashed #f9ab00;
-            color: transparent;
-            text-align: center;
-        }
-
-        /* Hộp gợi ý dạng "bấm để xem" - dùng thẻ <details> có sẵn của HTML, không cần JS */
-        .hint-box {
-            margin: 10px 0 16px 0;
-            background: #fff8e6;
-            border: 1px solid #f5dfa3;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .hint-box summary {
-            cursor: pointer;
-            padding: 10px 14px;
-            font-size: 13.5px;
-            font-weight: 700;
-            color: #8a6400;
-            list-style: none;
-        }
-        .hint-box summary::-webkit-details-marker { display: none; }
-        .hint-box summary::before { content: "💡 "; }
-        .hint-box[open] summary::before { content: "💡 "; }
-        .hint-box summary::after { content: " (bấm để xem gợi ý)"; font-weight: 400; font-size: 12px; color: #a3873f; }
-        .hint-box[open] summary::after { content: " (bấm để ẩn gợi ý)"; }
-        .hint-content {
-            padding: 0 14px 14px 14px;
-            font-size: 13.5px;
-            color: #5a4a1f;
-            line-height: 1.6;
-        }
-        .hint-content code { background: #fff0c6; padding: 1px 6px; border-radius: 4px; }
-
-        /* Khối code có chỗ trống */
-        .static-code-block {
-            background: #1e1e2e;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px 0 16px 0;
-        }
-        .static-code-topbar {
-            background: #2a2a3c;
-            padding: 10px 16px;
-            color: #d4d4dc;
-            font-size: 13px;
-            font-weight: 600;
-            font-family: 'Courier New', monospace;
-            border-bottom: 1px solid #383850;
-        }
-        .static-code-body {
-            padding: 16px 18px;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            line-height: 1.8;
-            color: #d4d4dc;
-            overflow-x: auto;
-            white-space: pre;
-        }
-        .static-code-body .kw  { color: #c586c0; }
-        .static-code-body .fn  { color: #dcdcaa; }
-        .static-code-body .str { color: #ce9178; }
-        .static-code-body .com { color: #6a9955; font-style: italic; }
-        .static-code-body .cls { color: #4ec9b0; }
-        .static-code-body .dec { color: #dcdcaa; }
-        .static-code-body .todo { color: #f9ab00; font-weight: 700; }
-        .static-code-body .fill {
-            display: inline-block;
-            min-width: 110px;
-            border-bottom: 2px dashed #f9ab00;
-            color: #f9ab00;
-        }
-
-        /* Checklist cho Bài 2 */
-        .exercise-checklist {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 16px 0;
-        }
-        .exercise-checklist li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 8px 0;
-            font-size: 13.5px;
-            color: #333;
-            border-bottom: 1px solid #f0f1f4;
-        }
-        .exercise-checklist li:last-child { border-bottom: none; }
-        .exercise-checklist input[type="checkbox"] {
-            margin-top: 2px;
-            width: 16px;
-            height: 16px;
-            accent-color: #34a853;
-            cursor: pointer;
-        }
-
-        /* Ô upload ảnh chụp màn hình */
-        .screenshot-upload {
-            margin-top: 14px;
-            border: 2px dashed #c9cfd8;
-            border-radius: 10px;
-            padding: 26px;
-            text-align: center;
-            color: #888;
-            font-size: 13.5px;
-            background: #fafbfd;
-        }
-        .screenshot-upload .upload-icon { font-size: 26px; display: block; margin-bottom: 8px; }
-        </style>
-
-        <!-- Section 3: Bài tập thực hành -->
-        <section id="sec-exercise" class="card-panel">
-            <div class="section-header">
-                <div class="section-num">3</div>
-                <div class="section-title">Bài Tập Thực Hành</div>
-            </div>
-
-            <!-- ============ Bài 1 ============ -->
-            <div class="exercise-block">
-                <div class="exercise-title">
-                    <span class="exercise-badge">Bài 1</span>
-                    Tạo dự án FastAPI mới: <code>library_management</code>
-                </div>
-                <p class="exercise-goal">Mục tiêu: tự tay lặp lại quy trình đã học ở dự án <code>store_management</code>, nhưng đổi ngữ cảnh sang quản lý thư viện.</p>
-
-                <p class="theory-p">
-                    Trên laptop cá nhân, tạo một dự án FastAPI mới tên <code>library_management</code> (venv riêng, chỉ cần
-                    1 file <code>app/main.py</code> — giống hệt dự án mẫu Buổi 1).
-                    Sau đó định nghĩa endpoint <code>GET /api/v1/library-info</code> trả về <b>tên thư viện</b>, <b>địa chỉ</b>, <b>giờ mở cửa</b>.
-                </p>
-
-                <div class="static-code-block">
-                    <div class="static-code-topbar">🐍 app/main.py — điền vào chỗ trống</div>
-                    <div class="static-code-body"><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
-
-<span class="com"># TODO 1: Khởi tạo app (giống hệt cú pháp bên dự án store_management)</span>
-app = <span class="fill">______________</span>
-
-<span class="com"># TODO 2: Điền key và value cho đúng yêu cầu đề bài</span>
-<span class="cls">LIBRARY_INFO</span> = {
-    <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">Thư viện ABC</span>"</span>,
-    <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">____________</span>"</span>,
-    <span class="str">"<span class="fill">____________</span>"</span>: <span class="str">"<span class="fill">____________</span>"</span>
-}
-
-
-<span class="com"># TODO 3: Gắn decorator route GET đúng path /api/v1/library-info</span>
-<span class="dec">@app.get(<span class="str">"<span class="fill">______________________</span>"</span>)</span>
-<span class="kw">def</span> <span class="fn"><span class="fill">____________</span></span>():
-    <span class="kw">return</span> <span class="cls">LIBRARY_INFO</span></div>
-                </div>
-
-                <details class="hint-box">
-                    <summary>Gợi ý cho Bài 1</summary>
-                    <div class="hint-content">
-                        - <b>TODO 1</b>: xem lại cách khởi tạo trong dự án <code>store_management</code> — chỉ có 1 dòng, dùng class đã import ở trên.<br>
-                        - <b>TODO 2</b>: đề bài yêu cầu 3 trường dữ liệu — key nên đặt bằng tiếng Anh, không dấu, không khoảng trắng (ví dụ dạng <code>library_name</code>, <code>address</code>, <code>opening_hours</code>).<br>
-                        - <b>TODO 3</b>: path phải khớp đúng endpoint yêu cầu trong đề (<code>/api/v1/library-info</code>); tên hàm nên mô tả đúng việc hàm làm, viết bằng <code>snake_case</code> (ví dụ: <code>get_library_info</code>).
-                    </div>
-                </details>
-            </div>
-
-            <!-- ============ Bài 2 ============ -->
-            <div class="exercise-block">
-                <div class="exercise-title">
-                    <span class="exercise-badge">Bài 2</span>
-                    Chạy Uvicorn &amp; test trên Swagger UI
-                </div>
-                <p class="exercise-goal">Mục tiêu: xác nhận API vừa viết ở Bài 1 chạy đúng, thông qua giao diện Swagger UI tự sinh.</p>
-
-                <ul class="exercise-checklist">
-                    <li><input type="checkbox"> Kích hoạt venv của dự án <code>library_management</code></li>
-                    <li><input type="checkbox"> Chạy lệnh <code>uvicorn app.main:app --reload</code> từ thư mục gốc dự án</li>
-                    <li><input type="checkbox"> Mở trình duyệt tại <code>http://127.0.0.1:8000/docs</code></li>
-                    <li><input type="checkbox"> Tìm endpoint <code>GET /api/v1/library-info</code>, bấm <b>"Try it out"</b> → <b>"Execute"</b></li>
-                    <li><input type="checkbox"> Kiểm tra <b>Response code = 200</b> và <b>Response body</b> đúng 3 trường đã điền ở Bài 1</li>
-                    <li><input type="checkbox"> Chụp ảnh màn hình kết quả (gồm cả URL, endpoint, và response body)</li>
-                </ul>
-
-                <details class="hint-box">
-                    <summary>Gợi ý cho Bài 2</summary>
-                    <div class="hint-content">
-                        - Nếu báo lỗi <code>command not found: uvicorn</code> → kiểm tra lại đã activate venv và cài <code>requirements.txt</code> chưa.<br>
-                        - Nếu báo lỗi <code>Address already in use</code> → đổi cổng: <code>uvicorn app.main:app --reload --port 8001</code> (nhớ đổi luôn URL Swagger UI tương ứng).<br>
-                    </div>
-                </details>
-
-            </div>
-        </section>
 
 
         <!-- Section 4: Nộp Bài Học Viên & Bảng Quản Lý Giảng Viên (KHÓA MẬT KHẨU GIẢNG VIÊN) -->
         <section id="sec-submit" class="card-panel">
             <div class="section-header">
-                <div class="section-num">4</div>
+                <div class="section-num">3</div>
                 <div class="section-title">Nộp Bài Tập Học Viên & Bảng Kiểm Soát Lớp Học</div>
             </div>
 
@@ -2112,7 +1887,7 @@ app = <span class="fill">______________</span>
         <!-- Section 5: ONLY Word Exercise File Resource Card -->
         <section id="sec-resource" class="card-panel">
             <div class="section-header">
-                <div class="section-num">5</div>
+                <div class="section-num">4</div>
                 <div class="section-title">Tài Nguyên File Bài Tập Word Đính Kèm</div>
             </div>
 
@@ -2945,65 +2720,184 @@ sys.stdout = io.StringIO()
         }
 
         function loadSubmissionsTable() {
-            let list = JSON.parse(localStorage.getItem(SUBMISSION) || '[]');
-            
+            let list = JSON.parse(localStorage.getItem(SUBMISSION) || "[]");
+
+            // Chỉ lấy bài DAY_05
             let dayList = list.filter(row => {
-                const les = String(row.lessonId || row.bai_hoc || row.lesson || '').trim();
-                return les === 'DAY_05' || les === 'DAY_05' || les === 'DAY_05' || les.includes('01');
+                const lesson = String(
+                    row.lessonId || row.lesson || row.bai_hoc || ""
+                ).trim().toUpperCase();
+
+                return lesson === "DAY_05";
             });
 
-            const stats = { CNTT1: 0, CNTT2: 0, CNTT3: 0, CNTT4: 0, CNTT5: 0, CNTT6: 0, CNTT8: 0 };
+            // ===============================
+            // Thống kê số lượng từng lớp
+            // ===============================
+            const stats = {
+                "HN-KS25-CNTT1": 0,
+                "HN-KS25-CNTT2": 0,
+                "HN-KS25-CNTT3": 0,
+                "HN-KS25-CNTT4": 0,
+                "HN-KS25-CNTT5": 0,
+                "HN-KS25-CNTT6": 0,
+                "HN-KS25-CNTT8": 0,
+
+                "HCM-KS25-CNTT5": 0,
+                "HCM-KS25-CNTT6": 0,
+                "HCM-KS25-CNTT7": 0,
+                "HCM-KS25-CNTT8": 0
+            };
+
             dayList.forEach(row => {
-                const cName = row.className || row.class || row.lop || row['Lớp'] || 'CNTT1';
-                if (stats[cName] !== undefined) stats[cName]++;
+                const className = (
+                    row.className ||
+                    row.class ||
+                    row.lop ||
+                    row["Lớp"] ||
+                    ""
+                ).trim();
+
+                if (stats.hasOwnProperty(className)) {
+                    stats[className]++;
+                }
             });
 
-            // Update stats labels in UI
-            const classKeys = ['CNTT1', 'CNTT2', 'CNTT3', 'CNTT4', 'CNTT5', 'CNTT6', 'CNTT8'];
-            classKeys.forEach(ck => {
-                let el = document.getElementById(`stat-${ck}`);
-                if (el) el.innerText = stats[ck];
+            // Cập nhật thống kê từng lớp
+            Object.keys(stats).forEach(key => {
+                const el = document.getElementById(`stat-${key}`);
+                if (el) {
+                    el.innerText = stats[key];
+                }
             });
 
-            // Filter by selected Class
-            const filterClassEl = document.getElementById('filterClassSelect');
-            const filterClass = filterClassEl ? filterClassEl.value : 'ALL';
-            if (filterClass !== 'ALL') {
-                dayList = dayList.filter(row => (row.className || row.class || row.lop || row['Lớp']) === filterClass);
+            // ===============================
+            // Lọc theo lớp
+            // ===============================
+            const filterClassEl = document.getElementById("filterClassSelect");
+            const filterClass = filterClassEl ? filterClassEl.value : "ALL";
+
+            if (filterClass !== "ALL") {
+                dayList = dayList.filter(row => {
+                    const className =
+                        row.className ||
+                        row.class ||
+                        row.lop ||
+                        row["Lớp"] ||
+                        "";
+
+                    return className === filterClass;
+                });
             }
 
-            const tbody = document.getElementById('adminTableBody');
+            // Hiển thị tổng số bài
+            const countEl = document.getElementById("filteredSubCount");
+            if (countEl) {
+                countEl.innerText = dayList.length;
+            }
+
+            // ===============================
+            // Hiển thị bảng
+            // ===============================
+            const tbody = document.getElementById("adminTableBody");
             if (!tbody) return;
 
             if (dayList.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; color:#94a3b8; padding:20px;">Chưa có dữ liệu bài nộp nào trong hệ thống.</td></tr>';
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align:center;padding:20px;color:#94a3b8;">
+                            Chưa có bài nộp nào của DAY_05.
+                        </td>
+                    </tr>
+                `;
                 return;
             }
 
-            tbody.innerHTML = '';
-            dayList.forEach((sub, i) => {
-                const tr = document.createElement('tr');
-                const cName = sub.className || sub.class || sub.lop || sub['Lớp'] || 'CNTT1';
-                const link = sub.link || sub.github || sub['Link Github'] || '#';
-                const sName = sub.name || sub.ho_ten || sub['Họ và Tên'] || '';
-                const sMsv = sub.msv || sub['Mã Sinh Viên'] || '';
-                const sTime = sub.time || sub.timestamp || sub['Thời Gian Nộp'] || 'Vừa xong';
-                const lesCode = sub.bai_hoc || sub.lessonId || CURRENT_LESSON_ID;
+            tbody.innerHTML = "";
 
-                tr.innerHTML = `
-                    <td class="center"><b>${i + 1}</b></td>
-                    <td class="center"><b>${escapeHtml(lesCode)}</b></td>
-                    <td class="center"><code>${escapeHtml(sMsv)}</code></td>
-                    <td><b>${escapeHtml(sName)}</b></td>
-                    <td class="center"><span class="status-badge" style="background:#fef2f2; color:#dc2626; font-weight:800; padding:2px 8px; border-radius:4px;">${escapeHtml(cName)}</span></td>
-                    <td><a href="${escapeHtml(link)}" target="_blank" style="color:var(--accent-red); font-weight:700;">👉 Link Github Repo</a></td>
-                    <td class="center">${escapeHtml(sTime)}</td>
-                    <td class="center"><span class="status-badge" style="background:#dcfce7; color:#15803d; font-weight:bold;">Đã nộp</span></td>
+            dayList.forEach((sub, index) => {
+
+                const className =
+                    sub.className ||
+                    sub.class ||
+                    sub.lop ||
+                    sub["Lớp"] ||
+                    "";
+
+                const lesson =
+                    sub.lessonId ||
+                    sub.lesson ||
+                    sub.bai_hoc ||
+                    "DAY_05";
+
+                const msv =
+                    sub.msv ||
+                    sub["Mã Sinh Viên"] ||
+                    "";
+
+                const name =
+                    sub.name ||
+                    sub.ho_ten ||
+                    sub["Họ và Tên"] ||
+                    "";
+
+                const github =
+                    sub.link ||
+                    sub.github ||
+                    sub["Link Github"] ||
+                    "#";
+
+                const time =
+                    sub.time ||
+                    sub.timestamp ||
+                    sub["Thời Gian Nộp"] ||
+                    "";
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="center"><b>${index + 1}</b></td>
+
+                        <td class="center">
+                            <b>${escapeHtml(lesson)}</b>
+                        </td>
+
+                        <td class="center">
+                            <code>${escapeHtml(msv)}</code>
+                        </td>
+
+                        <td>
+                            <b>${escapeHtml(name)}</b>
+                        </td>
+
+                        <td class="center">
+                            <span class="status-badge"
+                                style="background:#fef2f2;color:#dc2626;font-weight:700;">
+                                ${escapeHtml(className)}
+                            </span>
+                        </td>
+
+                        <td>
+                            <a href="${escapeHtml(github)}"
+                            target="_blank"
+                            style="color:var(--accent-red);font-weight:bold;">
+                                👉 Link Github Repo
+                            </a>
+                        </td>
+
+                        <td class="center">
+                            ${escapeHtml(time)}
+                        </td>
+
+                        <td class="center">
+                            <span class="status-badge"
+                                style="background:#dcfce7;color:#15803d;font-weight:bold;">
+                                Đã nộp
+                            </span>
+                        </td>
+                    </tr>
                 `;
-                tbody.appendChild(tr);
             });
         }
-
         function exportSubmissionsToFormattedExcel() {
             let list = JSON.parse(localStorage.getItem(SUBMISSION) || '[]');
             const filterClassEl = document.getElementById('filterClassSelect');

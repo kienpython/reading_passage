@@ -1182,311 +1182,11 @@
         <!-- Section 2: Demo Code Phân Tích (LIVE DUAL-LAYER VS CODE HIGHLIGHTING) -->
 
         <!-- Section 3: Bài Tập Thực Hành -->
-        <style>
-        .exercise-block {
-            margin-bottom: 26px;
-            padding-bottom: 22px;
-            border-bottom: 1px dashed #e0e3e8;
-        }
-        .exercise-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .exercise-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
-        .exercise-badge {
-            background: linear-gradient(135deg, #4285f4, #1a56d6);
-            color: #fff;
-            font-size: 12.5px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 999px;
-        }
-        .exercise-goal {
-            font-size: 13.5px;
-            color: #666;
-            margin: -4px 0 14px 0;
-            font-style: italic;
-        }
-
-        /* Blank cần điền */
-        .blank {
-            display: inline-block;
-            min-width: 90px;
-            border-bottom: 2px dashed #f9ab00;
-            color: transparent;
-            text-align: center;
-        }
-
-        /* Hộp gợi ý dạng "bấm để xem" - dùng thẻ <details> có sẵn của HTML, không cần JS */
-        .hint-box {
-            margin: 10px 0 16px 0;
-            background: #fff8e6;
-            border: 1px solid #f5dfa3;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .hint-box summary {
-            cursor: pointer;
-            padding: 10px 14px;
-            font-size: 13.5px;
-            font-weight: 700;
-            color: #8a6400;
-            list-style: none;
-        }
-        .hint-box summary::-webkit-details-marker { display: none; }
-        .hint-box summary::before { content: "💡 "; }
-        .hint-box[open] summary::before { content: "💡 "; }
-        .hint-box summary::after { content: " (bấm để xem gợi ý)"; font-weight: 400; font-size: 12px; color: #a3873f; }
-        .hint-box[open] summary::after { content: " (bấm để ẩn gợi ý)"; }
-        .hint-content {
-            padding: 0 14px 14px 14px;
-            font-size: 13.5px;
-            color: #5a4a1f;
-            line-height: 1.6;
-        }
-        .hint-content code { background: #fff0c6; padding: 1px 6px; border-radius: 4px; }
-
-        /* Khối code có chỗ trống */
-        .static-code-block {
-            background: #1e1e2e;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px 0 16px 0;
-        }
-        .static-code-topbar {
-            background: #2a2a3c;
-            padding: 10px 16px;
-            color: #d4d4dc;
-            font-size: 13px;
-            font-weight: 600;
-            font-family: 'Courier New', monospace;
-            border-bottom: 1px solid #383850;
-        }
-        .static-code-body {
-            padding: 16px 18px;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            line-height: 1.8;
-            color: #d4d4dc;
-            overflow-x: auto;
-            white-space: pre;
-        }
-        .static-code-body .kw  { color: #c586c0; }
-        .static-code-body .fn  { color: #dcdcaa; }
-        .static-code-body .str { color: #ce9178; }
-        .static-code-body .com { color: #6a9955; font-style: italic; }
-        .static-code-body .cls { color: #4ec9b0; }
-        .static-code-body .num { color: #b5cea8; }
-        .static-code-body .todo { color: #f9ab00; font-weight: 700; }
-        .static-code-body .fill {
-            display: inline-block;
-            min-width: 110px;
-            border-bottom: 2px dashed #f9ab00;
-            color: #f9ab00;
-        }
-
-        /* Checklist */
-        .exercise-checklist {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 16px 0;
-        }
-        .exercise-checklist li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 8px 0;
-            font-size: 13.5px;
-            color: #333;
-            border-bottom: 1px solid #f0f1f4;
-        }
-        .exercise-checklist li:last-child { border-bottom: none; }
-        .exercise-checklist input[type="checkbox"] {
-            margin-top: 2px;
-            width: 16px;
-            height: 16px;
-            accent-color: #34a853;
-            cursor: pointer;
-        }
-
-        /* Ô upload ảnh chụp màn hình */
-        .screenshot-upload {
-            margin-top: 14px;
-            border: 2px dashed #c9cfd8;
-            border-radius: 10px;
-            padding: 26px;
-            text-align: center;
-            color: #888;
-            font-size: 13.5px;
-            background: #fafbfd;
-        }
-        .screenshot-upload .upload-icon { font-size: 26px; display: block; margin-bottom: 8px; }
-
-        .theory-p { font-size: 14px; line-height: 1.7; color: #333; }
-        </style>
-
-        <section id="sec-miniproject-crud" class="card-panel">
-            <div class="section-header">
-                <div class="section-num">1</div>
-                <div class="section-title">🚀 Mini Project: Hoàn Thiện API CRUD Quản Lý Sách Thư Viện (RAM)</div>
-            </div>
-
-            <p class="theory-p" style="margin-bottom: 18px;">
-                Tiếp nối 2 bài đã làm ở phần trước (<code>BookCreate</code>/<code>BookResponse</code> và <code>POST</code>/<code>GET</code>&nbsp;một sách),
-                mini project này yêu cầu <b>hoàn thiện trọn bộ API RESTful CRUD</b> cho resource sách: thêm Schema <code>BookUpdate</code>,
-                bổ sung endpoint <b>lấy danh sách</b>, <b>cập nhật</b> và <b>xóa</b> sách — tất cả đều dùng <code>response_model</code> và
-                ném <code>HTTPException</code> khi không tìm thấy sách.
-            </p>
-
-            <!-- ============ Bài 3 ============ -->
-            <div class="exercise-block">
-                <div class="exercise-title">
-                    <span class="exercise-badge">Bài 3</span>
-                    Bổ sung Schema <code>BookUpdate</code> &amp; Endpoint <code>GET /books</code> (danh sách)
-                </div>
-                <p class="exercise-goal">Mục tiêu: tạo schema cho phép cập nhật một phần dữ liệu (partial update), và viết endpoint trả về toàn bộ danh sách sách.</p>
-
-                <p class="theory-p">
-                    Trong <code>schemas/book.py</code>, thêm <code>BookUpdate</code> — các field giống <code>BookCreate</code> nhưng đều <b>tùy chọn</b> (Client chỉ cần gửi field muốn đổi).
-                    Trong <code>routers/book.py</code>, thêm endpoint <code>GET /books</code> trả về danh sách tất cả sách đang có trong <code>fake_books_db</code>.
-                </p>
-
-                <div class="static-code-block">
-                    <div class="static-code-topbar">🐍 schemas/book.py — điền vào chỗ trống</div>
-                    <div class="static-code-body"><span class="kw">from</span> typing <span class="kw">import</span> Optional
-<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel, Field
-<span class="com"># ... BookCreate, BookResponse đã viết ở Bài 1 ...</span>
-<span class="com"># TODO 1: Đặt tên class cho schema cập nhật (partial update)</span>
-<span class="kw">class</span> <span class="cls"><span class="fill">______________</span></span>(BaseModel):
-    <span class="com"># TODO 2: Bọc kiểu dữ liệu bằng Optional, giá trị mặc định là None</span>
-    title: <span class="fill">________________________</span> = <span class="kw">None</span>
-    author: <span class="fill">________________________</span> = <span class="kw">None</span>
-    price: <span class="fill">________________________</span> = <span class="kw">None</span>
-    pages: <span class="fill">________________________</span> = <span class="kw">None</span></div>
-        </div>
-
-        <div class="static-code-block">
-            <div class="static-code-topbar">🐍 routers/book.py — điền vào chỗ trống</div>
-            <div class="static-code-body"><span class="com"># TODO 3: Gắn decorator GET đúng path (danh sách, không có {book_id})</span>
-<span class="fill">____________________________________________</span>
-<span class="kw">def</span> <span class="fn">list_books</span>():
-    <span class="com"># TODO 4: Trả về toàn bộ dữ liệu đang có trong fake_books_db</span>
-    <span class="kw">return</span> <span class="fill">______________________</span></div>
-        </div>
-
-                <details class="hint-box">
-                    <summary>Gợi ý cho Bài 3</summary>
-                    <div class="hint-content">
-                        - <b>TODO 1</b>: schema cập nhật thường có hậu tố <code>Update</code>, ví dụ <code>BookUpdate</code>.<br>
-                        - <b>TODO 2</b>: dùng <code>Optional[str]</code>, <code>Optional[float]</code>, <code>Optional[int]</code> — nhớ <code>import Optional from typing</code>.<br>
-                        - <b>TODO 3</b>: <code>@router.get("/", response_model=List[BookResponse])</code> — nhớ <code>from typing import List</code>.<br>
-                        - <b>TODO 4</b>: <code>fake_books_db</code> đang là <code>list</code> thì trả thẳng; nếu bạn đổi sang <code>dict</code> để tra cứu nhanh hơn thì dùng <code>list(fake_books_db.values())</code>.
-                    </div>
-                </details>
-            </div>
-
-            <!-- ============ Bài 4 ============ -->
-            <div class="exercise-block">
-                <div class="exercise-title">
-                    <span class="exercise-badge">Bài 4</span>
-                    Viết Endpoint <code>PUT /books/{id}</code> (cập nhật sách)
-                </div>
-                <p class="exercise-goal">Mục tiêu: cho phép sửa một phần thông tin sách đã có, chỉ ghi đè những field Client thực sự gửi lên.</p>
-
-                <div class="static-code-block">
-                    <div class="static-code-topbar">🐍 routers/book.py — điền vào chỗ trống</div>
-                    <div class="static-code-body"><span class="com"># TODO 1: Gắn decorator PUT đúng path, đúng response_model</span>
-<span class="fill">____________________________________________</span>
-<span class="kw">def</span> <span class="fn">update_book</span>(book_id: <span class="cls">int</span>, book_update: BookUpdate):
-    <span class="com"># TODO 2: Tìm sách theo book_id — nếu không có thì ném 404 (dùng lại logic đã viết ở Bài 2)</span>
-    book = <span class="fill">______________________</span>
-
-    <span class="com"># TODO 3: Chỉ lấy những field Client THỰC SỰ gửi lên (gợi ý: exclude_unset=True)</span>
-    update_data = book_update.model_dump(<span class="fill">______________________</span>)
-
-    <span class="com"># TODO 4: Ghi đè các field mới vào sách cũ</span>
-    <span class="fill">______________________</span>
-
-    <span class="kw">return</span> book</div>
-        </div>
-
-                <details class="hint-box">
-                    <summary>Gợi ý cho Bài 4</summary>
-                    <div class="hint-content">
-                        - <b>TODO 1</b>: <code>@router.put("/{book_id}", response_model=BookResponse)</code>.<br>
-                        - <b>TODO 2</b>: nên tách logic "tìm sách hoặc ném 404" thành một hàm dùng chung (ví dụ <code>_get_book_or_404(book_id)</code>) để không phải viết lại ở cả <code>GET</code>, <code>PUT</code>, <code>DELETE</code>.<br>
-                        - <b>TODO 3</b>: <code>exclude_unset=True</code> — nếu không có tham số này, những field Client không gửi sẽ bị Pydantic điền giá trị <code>None</code> và ghi đè mất dữ liệu cũ.<br>
-                        - <b>TODO 4</b>: nếu sách đang là <code>dict</code>, dùng <code>book.update(update_data)</code>.
-                    </div>
-                </details>
-            </div>
-
-            <!-- ============ Bài 5 ============ -->
-            <div class="exercise-block">
-                <div class="exercise-title">
-                    <span class="exercise-badge">Bài 5</span>
-                    Viết Endpoint <code>DELETE /books/{id}</code> (xóa sách)
-                </div>
-                <p class="exercise-goal">Mục tiêu: xóa hẳn một cuốn sách khỏi RAM, trả về đúng status code chuẩn REST khi xóa thành công.</p>
-
-                <div class="static-code-block">
-                    <div class="static-code-topbar">🐍 routers/book.py — điền vào chỗ trống</div>
-                    <div class="static-code-body"><span class="com"># TODO 1: Gắn decorator DELETE đúng path, đúng status_code khi xóa thành công</span>
-<span class="fill">____________________________________________</span>
-<span class="kw">def</span> <span class="fn">delete_book</span>(book_id: <span class="cls">int</span>):
-    <span class="com"># TODO 2: Kiểm tra sách có tồn tại không — nếu không thì ném 404</span>
-    <span class="fill">______________________</span>
-
-    <span class="com"># TODO 3: Xóa sách khỏi fake_books_db</span>
-    <span class="fill">______________________</span>
-
-    <span class="kw">return</span> <span class="kw">None</span></div>
-        </div>
-
-                <details class="hint-box">
-                    <summary>Gợi ý cho Bài 5</summary>
-                    <div class="hint-content">
-                        - <b>TODO 1</b>: <code>@router.delete("/{book_id}", status_code=204)</code> — 204 nghĩa là "thành công nhưng không có nội dung trả về".<br>
-                        - <b>TODO 2</b>: dùng lại hàm tìm sách hoặc ném 404 đã viết ở Bài 4.<br>
-                        - <b>TODO 3</b>: nếu <code>fake_books_db</code> là <code>dict</code>, dùng <code>del fake_books_db[book_id]</code>; nếu là <code>list</code>, dùng <code>fake_books_db.remove(book)</code>.<br>
-                        - Với status <code>204</code>, hàm <b>không được trả về body dữ liệu</b> — chỉ <code>return None</code>.
-                    </div>
-                </details>
-            </div>
-
-            <!-- ============ Checklist tổng hợp toàn bộ CRUD ============ -->
-            <p class="theory-p" style="margin-top: 4px;"><b>Sau khi hoàn thiện đủ 5 endpoint, test lại toàn bộ CRUD bằng checklist sau:</b></p>
-            <ul class="exercise-checklist">
-                <li><input type="checkbox"> Chạy <code>uvicorn app.main:app --reload</code>, mở <code>http://127.0.0.1:8000/docs</code></li>
-                <li><input type="checkbox"> <code>POST /api/v1/books</code> — thêm 2 cuốn sách mẫu, kiểm tra <b>201</b> và <code>id</code> tự tăng đúng (1, 2, ...)</li>
-                <li><input type="checkbox"> <code>GET /api/v1/books</code> — kiểm tra trả về đúng <b>danh sách 2 sách</b> vừa thêm</li>
-                <li><input type="checkbox"> <code>GET /api/v1/books/{id}</code> — kiểm tra lấy đúng chi tiết 1 sách, status <b>200</b></li>
-                <li><input type="checkbox"> <code>PUT /api/v1/books/{id}</code> — chỉ gửi 1 field (ví dụ <code>price</code>), kiểm tra các field khác <b>không bị mất</b></li>
-                <li><input type="checkbox"> <code>DELETE /api/v1/books/{id}</code> — kiểm tra status <b>204</b>, sau đó <code>GET</code> lại id đó phải trả về <b>404</b></li>
-                <li><input type="checkbox"> Gọi <code>GET /api/v1/books/999</code> (id không tồn tại) — kiểm tra status <b>404</b> kèm message rõ ràng</li>
-                <li><input type="checkbox"> Gọi <code>POST</code> với <code>price</code> âm hoặc thiếu field — kiểm tra status <b>422</b></li>
-            </ul>
-
-            <details class="hint-box">
-                <summary>Gợi ý xử lý lỗi thường gặp</summary>
-                <div class="hint-content">
-                    - Nếu <code>PUT</code> làm mất dữ liệu các field không gửi lên → quên <code>exclude_unset=True</code> ở <code>model_dump()</code>.<br>
-                    - Nếu <code>DELETE</code> báo lỗi 500 thay vì 204 → kiểm tra hàm có <code>return</code> giá trị nào đó thay vì <code>None</code> khi <code>status_code=204</code>.<br>
-                    - Nếu <code>GET /books/{id}</code> luôn 404 dù vừa <code>POST</code> thành công → kiểm tra <code>fake_books_db</code> có đang bị khai báo lại (reset) ở đâu đó trong code không.
-                </div>
-            </details>
-        </section>
-
 
         <!-- Section 4: Nộp Bài Học Viên & Bảng Quản Lý Giảng Viên (KHÓA MẬT KHẨU GIẢNG VIÊN) -->
         <section id="sec-submit" class="card-panel">
             <div class="section-header">
-                <div class="section-num">4</div>
+                <div class="section-num">1</div>
                 <div class="section-title">Nộp Bài Tập Học Viên & Bảng Kiểm Soát Lớp Học</div>
             </div>
 
@@ -1576,12 +1276,12 @@
                             <label style="font-weight: 700; font-size: 0.9rem;">📚 Lọc Theo Bài Học:</label>
                             <select id="filterLessonSelect" onchange="loadSubmissionsTable()" class="form-input" style="width: auto; height: 36px; padding: 0 16px; font-weight: 700; cursor: pointer; max-width: 320px;">
                                 <option value="ALL">--- Tất Cả Các Bài Học (Ngày 1 -> Ngày 14) ---</option>
-                                <option value="DAY_01" selected>Ngày 1: Python Core 1</option>
+                                <option value="DAY_07" selected>Ngày 1: Python Core 1</option>
                                 <option value="DAY_02">Ngày 2: Python Core 2</option>
                                 <option value="DAY_03">Ngày 3: Python Core 3</option>
                                 <option value="DAY_04">Ngày 4: Python Core 4</option>
                                 <option value="DAY_05">Ngày 5: FastAPI Architecture</option>
-                                <option value="DAY_06">Ngày 6: Pydantic Schemas</option>
+                                <option value="DAY_07">Ngày 6: Pydantic Schemas</option>
                                 <option value="DAY_07">Ngày 7: Mini Project 1</option>
                                 <option value="DAY_08">Ngày 8: MySQL & SQLAlchemy</option>
                                 <option value="DAY_09">Ngày 9: Service CRUD</option>
@@ -1664,7 +1364,7 @@
         <!-- Section 5: ONLY Word Exercise File Resource Card -->
         <section id="sec-resource" class="card-panel">
             <div class="section-header">
-                <div class="section-num">5</div>
+                <div class="section-num">2</div>
                 <div class="section-title">Tài Nguyên File Bài Tập Word Đính Kèm</div>
             </div>
 
@@ -1724,6 +1424,7 @@
         let pyodidePromise = null;
         let currentActiveLessonId = "DAY_07";
         const CURRENT_LESSON_ID = "DAY_07";
+        const SUBMISSION = "DAY_07";
         let ex1Passed = false;
         let ex2Passed = false;
         const TEACHER_PASSWORD_KEY = "rikkeiedu";
@@ -1758,16 +1459,16 @@
         };
 
         // PRE-POPULATE MOCK DATA
-        if (!localStorage.getItem('python_day1_submissions')) {
+        if (!localStorage.getItem(SUBMISSION)) {
             const mockData = [
-                { id: 1, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026001", name: "Nguyễn Văn An", className: "CNTT1", class: "CNTT1", lop: "CNTT1", link: "https://github.com/an/python-day1", time: "26/07/2026 09:15:00", status: "Đã nộp" },
-                { id: 2, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026002", name: "Trần Thị Bình", className: "CNTT2", class: "CNTT2", lop: "CNTT2", link: "https://github.com/binh/python-day1", time: "26/07/2026 09:18:22", status: "Đã nộp" },
-                { id: 3, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026003", name: "Lê Hoàng Cường", className: "CNTT3", class: "CNTT3", lop: "CNTT3", link: "https://github.com/cuong/python-day1", time: "26/07/2026 09:22:45", status: "Đã nộp" },
-                { id: 4, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026004", name: "Phạm Văn Dũng", className: "CNTT4", class: "CNTT4", lop: "CNTT4", link: "https://github.com/dung/python-day1", time: "26/07/2026 09:30:12", status: "Đã nộp" },
-                { id: 5, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026005", name: "Đỗ Minh Đăng", className: "CNTT5", class: "CNTT5", lop: "CNTT5", link: "https://github.com/dang/python-day1", time: "26/07/2026 09:35:50", status: "Đã nộp" },
-                { id: 6, lessonId: "DAY_01", lesson: "DAY_01", msv: "SV2026006", name: "Hoàng Thị Em", className: "CNTT6", class: "CNTT6", lop: "CNTT6", link: "https://github.com/em/python-day1", time: "26/07/2026 09:40:11", status: "Đã nộp" }
+                { id: 1, lessonId: "DAY_07", lesson: "DAY_07", msv: "SV2026001", name: "Nguyễn Văn An", className: "CNTT1", class: "CNTT1", lop: "CNTT1", link: "https://github.com/an/python-day1", time: "26/07/2026 09:15:00", status: "Đã nộp" },
+                { id: 2, lessonId: "DAY_07", lesson: "DAY_07", msv: "SV2026002", name: "Trần Thị Bình", className: "CNTT2", class: "CNTT2", lop: "CNTT2", link: "https://github.com/binh/python-day1", time: "26/07/2026 09:18:22", status: "Đã nộp" },
+                { id: 3, lessonId: "DAY_07", lesson: "DAY_07", msv: "SV2026003", name: "Lê Hoàng Cường", className: "CNTT3", class: "CNTT3", lop: "CNTT3", link: "https://github.com/cuong/python-day1", time: "26/07/2026 09:22:45", status: "Đã nộp" },
+                { id: 4, lessonId: "DAY_07", lesson: "DAY_07", msv: "SV2026004", name: "Phạm Văn Dũng", className: "CNTT4", class: "CNTT4", lop: "CNTT4", link: "https://github.com/dung/python-day1", time: "26/07/2026 09:30:12", status: "Đã nộp" },
+                { id: 5, lessonId: "DAY_07", lesson: "DAY_07", msv: "SV2026005", name: "Đỗ Minh Đăng", className: "CNTT5", class: "CNTT5", lop: "CNTT5", link: "https://github.com/dang/python-day1", time: "26/07/2026 09:35:50", status: "Đã nộp" },
+                { id: 6, lessonId: "DAY_07", lesson: "DAY_07", msv: "SV2026006", name: "Hoàng Thị Em", className: "CNTT6", class: "CNTT6", lop: "CNTT6", link: "https://github.com/em/python-day1", time: "26/07/2026 09:40:11", status: "Đã nộp" }
             ];
-            localStorage.setItem('python_day1_submissions', JSON.stringify(mockData));
+            localStorage.setItem(SUBMISSION, JSON.stringify(mockData));
         }
 
         function getWebhookUrl() {
@@ -1781,9 +1482,9 @@
             const isInSubfolder = currentPath.includes('/day01/') || currentPath.includes('/day02/');
             const prefix = isInSubfolder ? '../' : './';
 
-            if (val === "DAY_01") {
+            if (val === "DAY_07") {
                 window.location.href = prefix + "day01/day01_python_core.html";
-            } else if (val === "DAY_02") {
+            } else if (val === "DAY_08") {
                 window.location.href = prefix + "day02/day02_python_core.html";
             } else {
                 alert("📌 Bài học " + val + " đang trong tiến trình chuẩn bị!");
@@ -1811,7 +1512,7 @@
         // MASTER CURRICULUM MODULE SWITCHER
         function changeLessonModule(lessonId) {
             currentActiveLessonId = lessonId;
-            const data = SYLLABUS_MAP[lessonId] || SYLLABUS_MAP["DAY_01"];
+            const data = SYLLABUS_MAP[lessonId] || SYLLABUS_MAP["DAY_07"];
 
             const badgeEl = document.getElementById('bannerBadge');
             const titleEl = document.getElementById('bannerTitle');
@@ -2376,9 +2077,9 @@ sys.stdout = io.StringIO()
                 status: 'Đã nộp'
             };
 
-            let existing = JSON.parse(localStorage.getItem('python_day1_submissions') || '[]');
+            let existing = JSON.parse(localStorage.getItem(SUBMISSION) || '[]');
             existing.unshift(payload);
-            localStorage.setItem('python_day1_submissions', JSON.stringify(existing));
+            localStorage.setItem(SUBMISSION, JSON.stringify(existing));
 
             const webhookUrl = getWebhookUrl();
             if (webhookUrl && webhookUrl.length > 10) {
@@ -2456,9 +2157,9 @@ sys.stdout = io.StringIO()
                                 id: item.id || (Date.now() + idx),
                                 time: item.time || item.timestamp || '',
                                 timestamp: item.time || item.timestamp || '',
-                                lessonId: item.lessonId || item.bai_hoc || item.lesson || 'DAY_01',
-                                lesson: item.lessonId || item.bai_hoc || item.lesson || 'DAY_01',
-                                bai_hoc: item.lessonId || item.bai_hoc || item.lesson || 'DAY_01',
+                                lessonId: item.lessonId || item.bai_hoc || item.lesson || 'DAY_07',
+                                lesson: item.lessonId || item.bai_hoc || item.lesson || 'DAY_07',
+                                bai_hoc: item.lessonId || item.bai_hoc || item.lesson || 'DAY_07',
                                 className: item.className || item.class || item.lop || '',
                                 class: item.className || item.class || item.lop || '',
                                 lop: item.className || item.class || item.lop || '',
@@ -2470,7 +2171,7 @@ sys.stdout = io.StringIO()
                                 status: item.status || 'Đã nộp'
                             }));
 
-                            localStorage.setItem('python_day1_submissions', JSON.stringify(normalizedData));
+                            localStorage.setItem(SUBMISSION, JSON.stringify(normalizedData));
                             if (statusMsg) {
                                 statusMsg.style.background = '#dcfce7';
                                 statusMsg.style.color = '#15803d';
@@ -2496,71 +2197,191 @@ sys.stdout = io.StringIO()
         }
 
         function loadSubmissionsTable() {
-            let list = JSON.parse(localStorage.getItem('python_day1_submissions') || '[]');
-            
+            let list = JSON.parse(localStorage.getItem(SUBMISSION) || "[]");
+
+            // Chỉ lấy bài DAY_07
             let dayList = list.filter(row => {
-                const les = String(row.lessonId || row.bai_hoc || row.lesson || '').trim();
-                return les === 'DAY_01' || les === 'Day_01' || les === 'day_01' || les.includes('01');
+                const lesson = String(
+                    row.lessonId || row.lesson || row.bai_hoc || ""
+                ).trim().toUpperCase();
+                console.log("Lesson:", lesson);
+                return lesson === "DAY_07";
             });
 
-            const stats = { CNTT1: 0, CNTT2: 0, CNTT3: 0, CNTT4: 0, CNTT5: 0, CNTT6: 0, CNTT8: 0 };
+            // ===============================
+            // Thống kê số lượng từng lớp
+            // ===============================
+            const stats = {
+                "HN-KS25-CNTT1": 0,
+                "HN-KS25-CNTT2": 0,
+                "HN-KS25-CNTT3": 0,
+                "HN-KS25-CNTT4": 0,
+                "HN-KS25-CNTT5": 0,
+                "HN-KS25-CNTT6": 0,
+                "HN-KS25-CNTT8": 0,
+
+                "HCM-KS25-CNTT5": 0,
+                "HCM-KS25-CNTT6": 0,
+                "HCM-KS25-CNTT7": 0,
+                "HCM-KS25-CNTT8": 0
+            };
+
             dayList.forEach(row => {
-                const cName = row.className || row.class || row.lop || row['Lớp'] || 'CNTT1';
-                if (stats[cName] !== undefined) stats[cName]++;
+                const className = (
+                    row.className ||
+                    row.class ||
+                    row.lop ||
+                    row["Lớp"] ||
+                    ""
+                ).trim();
+
+                if (stats.hasOwnProperty(className)) {
+                    stats[className]++;
+                }
             });
 
-            // Update stats labels in UI
-            const classKeys = ['CNTT1', 'CNTT2', 'CNTT3', 'CNTT4', 'CNTT5', 'CNTT6', 'CNTT8'];
-            classKeys.forEach(ck => {
-                let el = document.getElementById(`stat-${ck}`);
-                if (el) el.innerText = stats[ck];
+            // Cập nhật thống kê từng lớp
+            Object.keys(stats).forEach(key => {
+                const el = document.getElementById(`stat-${key}`);
+                if (el) {
+                    el.innerText = stats[key];
+                }
             });
 
-            // Filter by selected Class
-            const filterClassEl = document.getElementById('filterClassSelect');
-            const filterClass = filterClassEl ? filterClassEl.value : 'ALL';
-            if (filterClass !== 'ALL') {
-                dayList = dayList.filter(row => (row.className || row.class || row.lop || row['Lớp']) === filterClass);
+            // ===============================
+            // Lọc theo lớp
+            // ===============================
+            const filterClassEl = document.getElementById("filterClassSelect");
+            const filterClass = filterClassEl ? filterClassEl.value : "ALL";
+
+            if (filterClass !== "ALL") {
+                dayList = dayList.filter(row => {
+                    const className =
+                        row.className ||
+                        row.class ||
+                        row.lop ||
+                        row["Lớp"] ||
+                        "";
+
+                    return className === filterClass;
+                });
             }
 
-            const tbody = document.getElementById('adminTableBody');
+            // Hiển thị tổng số bài
+            const countEl = document.getElementById("filteredSubCount");
+            if (countEl) {
+                countEl.innerText = dayList.length;
+            }
+
+            // ===============================
+            // Hiển thị bảng
+            // ===============================
+            const tbody = document.getElementById("adminTableBody");
             if (!tbody) return;
 
             if (dayList.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; color:#94a3b8; padding:20px;">Chưa có dữ liệu bài nộp nào trong hệ thống.</td></tr>';
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align:center;padding:20px;color:#94a3b8;">
+                            Chưa có bài nộp nào của DAY_07.
+                        </td>
+                    </tr>
+                `;
                 return;
             }
 
-            tbody.innerHTML = '';
-            dayList.forEach((sub, i) => {
-                const tr = document.createElement('tr');
-                const cName = sub.className || sub.class || sub.lop || sub['Lớp'] || 'CNTT1';
-                const link = sub.link || sub.github || sub['Link Github'] || '#';
-                const sName = sub.name || sub.ho_ten || sub['Họ và Tên'] || '';
-                const sMsv = sub.msv || sub['Mã Sinh Viên'] || '';
-                const sTime = sub.time || sub.timestamp || sub['Thời Gian Nộp'] || 'Vừa xong';
-                const lesCode = sub.bai_hoc || sub.lessonId || CURRENT_LESSON_ID;
+            tbody.innerHTML = "";
 
-                tr.innerHTML = `
-                    <td class="center"><b>${i + 1}</b></td>
-                    <td class="center"><b>${escapeHtml(lesCode)}</b></td>
-                    <td class="center"><code>${escapeHtml(sMsv)}</code></td>
-                    <td><b>${escapeHtml(sName)}</b></td>
-                    <td class="center"><span class="status-badge" style="background:#fef2f2; color:#dc2626; font-weight:800; padding:2px 8px; border-radius:4px;">${escapeHtml(cName)}</span></td>
-                    <td><a href="${escapeHtml(link)}" target="_blank" style="color:var(--accent-red); font-weight:700;">👉 Link Github Repo</a></td>
-                    <td class="center">${escapeHtml(sTime)}</td>
-                    <td class="center"><span class="status-badge" style="background:#dcfce7; color:#15803d; font-weight:bold;">Đã nộp</span></td>
+            dayList.forEach((sub, index) => {
+
+                const className =
+                    sub.className ||
+                    sub.class ||
+                    sub.lop ||
+                    sub["Lớp"] ||
+                    "";
+
+                const lesson =
+                    sub.lessonId ||
+                    sub.lesson ||
+                    sub.bai_hoc ||
+                    "DAY_07";
+
+                const msv =
+                    sub.msv ||
+                    sub["Mã Sinh Viên"] ||
+                    "";
+
+                const name =
+                    sub.name ||
+                    sub.ho_ten ||
+                    sub["Họ và Tên"] ||
+                    "";
+
+                const github =
+                    sub.link ||
+                    sub.github ||
+                    sub["Link Github"] ||
+                    "#";
+
+                const time =
+                    sub.time ||
+                    sub.timestamp ||
+                    sub["Thời Gian Nộp"] ||
+                    "";
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="center"><b>${index + 1}</b></td>
+
+                        <td class="center">
+                            <b>${escapeHtml(lesson)}</b>
+                        </td>
+
+                        <td class="center">
+                            <code>${escapeHtml(msv)}</code>
+                        </td>
+
+                        <td>
+                            <b>${escapeHtml(name)}</b>
+                        </td>
+
+                        <td class="center">
+                            <span class="status-badge"
+                                style="background:#fef2f2;color:#dc2626;font-weight:700;">
+                                ${escapeHtml(className)}
+                            </span>
+                        </td>
+
+                        <td>
+                            <a href="${escapeHtml(github)}"
+                            target="_blank"
+                            style="color:var(--accent-red);font-weight:bold;">
+                                👉 Link Github Repo
+                            </a>
+                        </td>
+
+                        <td class="center">
+                            ${escapeHtml(time)}
+                        </td>
+
+                        <td class="center">
+                            <span class="status-badge"
+                                style="background:#dcfce7;color:#15803d;font-weight:bold;">
+                                Đã nộp
+                            </span>
+                        </td>
+                    </tr>
                 `;
-                tbody.appendChild(tr);
             });
         }
 
         function exportSubmissionsToFormattedExcel() {
-            let list = JSON.parse(localStorage.getItem('python_day1_submissions') || '[]');
+            let list = JSON.parse(localStorage.getItem(SUBMISSION) || '[]');
             const filterClassEl = document.getElementById('filterClassSelect');
             const filterClass = filterClassEl ? filterClassEl.value : 'ALL';
 
-            let filteredList = list.filter(sub => (sub.lessonId || sub.lesson || 'DAY_01') === 'DAY_01');
+            let filteredList = list.filter(sub => (sub.lessonId || sub.lesson || 'DAY_07') === 'DAY_07');
             if (filterClass !== 'ALL') {
                 filteredList = filteredList.filter(sub => (sub.className || sub.class || sub.lop) === filterClass);
             }
@@ -2573,7 +2394,7 @@ sys.stdout = io.StringIO()
                 return cA - cB;
             });
 
-            const titleText = `BÁO CÁO TỔNG HỢP NỘP BÀI TẬP PYTHON CORE - BÀI DAY_01`;
+            const titleText = `BÁO CÁO TỔNG HỢP NỘP BÀI TẬP PYTHON CORE - BÀI DAY_07`;
             let excelHTML = `
                 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
                 <head>
@@ -2629,7 +2450,7 @@ sys.stdout = io.StringIO()
                 excelHTML += `
                     <tr>
                         <td class="center">${stt++}</td>
-                        <td class="center">DAY_01</td>
+                        <td class="center">DAY_07</td>
                         <td class="center">${sub.msv || ''}</td>
                         <td>${sub.name || sub.ho_ten || ''}</td>
                         <td class="class-badge">${cName}</td>
@@ -2650,7 +2471,7 @@ sys.stdout = io.StringIO()
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `BaoCao_NopBai_DAY_01_${filterClass}_${new Date().toISOString().slice(0,10)}.xls`;
+            a.download = `BaoCao_NopBai_DAY_07_${filterClass}_${new Date().toISOString().slice(0,10)}.xls`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
